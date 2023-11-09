@@ -40,9 +40,9 @@ class Pedido(models.Model):
 
 class CategoriaRestauranteCiudad(models.Model):
     nombreCiudad = models.ForeignKey(Ciudad, on_delete = models.CASCADE)
-    idCategoriaRestaurante = models.ForeignKey(CategoriaRestaurante, on_delete = model.CASCADE)
+    idCategoriaRestaurante = models.ForeignKey(CategoriaRestaurante, on_delete = models.CASCADE)
 
 class PedidoProducto(models.Model):
     idPedido = models.ForeignKey(Pedido, on_delete = models.CASCADE)
-    idProducto = models.ForeignKey(Producto, on_delete = model.CASCADE)
+    idProducto = models.ForeignKey(Producto, on_delete = models.CASCADE)
 
