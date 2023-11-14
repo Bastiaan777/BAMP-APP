@@ -8,6 +8,9 @@ class Ciudad(models.Model):
 class CategoriaRestaurante(models.Model):
     idCategoriaRestaurante = models.CharField(max_length = 5)
     nombreCategoriaRestaurante = models.CharField(max_length = 50)
+    imagen= models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+
+
     def __str__(self):
         return self.nombreCategoriaRestaurante
 

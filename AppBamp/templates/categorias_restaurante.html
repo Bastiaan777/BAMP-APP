@@ -78,17 +78,9 @@
 <div class="container">
     {% for obj in categorias %}
       <div class="category">
-        {% if obj.idCategoriaRestaurante == 1 %}
-          <img src="" alt="{{ obj.nombreCategoriaRestaurante }}">
-        {% elif obj.idCategoriaRestaurante == 2 %}
-          <img src="" alt="{{ obj.nombre }}">
-        {% elif obj.idCategoriaRestaurante == 3 %}
-          <img src="ruta_a_imagen_sushi.jpg" alt="{{ obj.nombre }}">
-        {% elif obj.idCategoriaRestaurante == 4 %}
-          <img src="ruta_a_imagen_mexicano.jpg" alt="{{ obj.nombre }}">
-        {% elif obj.idCategoriaRestaurante == 5 %}
-          <img src="ruta_a_imagen_chino.jpg" alt="{{ obj.nombre }}">
-        {% endif %}
+  
+          <img src="imagen" alt="{{ obj.imagen }}">
+    
       </div>
     {% endfor %}
   </div>
