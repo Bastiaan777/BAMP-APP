@@ -2,6 +2,7 @@ from django.db import models
 
 class Ciudad(models.Model):
     nombre = models.CharField(max_length=50)
+    id = models.AutoField(primary_key=True)
     def __str__(self):
         return self.nombre
 
@@ -9,7 +10,7 @@ class CategoriaRestaurante(models.Model):
     idCategoriaRestaurante = models.CharField(max_length = 5)
     nombreCategoriaRestaurante = models.CharField(max_length = 50)
     imagen= models.ImageField(upload_to='imagenes_categoria_restaurante', height_field=None, width_field=None, max_length=100)
-
+    ciudades = models.ManyToManyField(Ciudad, related_name='categoriarestaurante')
 
     def __str__(self):
         return self.nombreCategoriaRestaurante
