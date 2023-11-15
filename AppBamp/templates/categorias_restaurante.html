@@ -33,11 +33,18 @@
 </div>
 
 <div class="container">
-    {% for obj in categorias %}
+    
+    {% for categoria in categorias %}
+    <div>
+      <h1> {{categoria.nombreCategoriaRestaurante}}</h1>
       <div class="category">
-        <img src="{{ obj.imagen.url }}" alt="Imagen de la Categoria.">
+        
+        <img src="{{ categoria.imagen.url }}" alt="Imagen de la Categoria.">
     
       </div>
+
+    </div>
+    
     {% endfor %}
   </div>
   

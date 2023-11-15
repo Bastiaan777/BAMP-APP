@@ -7,7 +7,7 @@ from .views import exit
 
 urlpatterns = [
     path('ciudades', views.ciudades, name='ciudades'),
-    path('categorias', views.categoria_restaurante, name='categorias'),
+    path('categoria_restaurante', views.categoria_restaurante, name='categoria_restaurante'),
     path('login', views.login, name = 'login'),
     path('home', views.home, name = 'home'),
     path('productos', views.productos, name = 'productos'),
