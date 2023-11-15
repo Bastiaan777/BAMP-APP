@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <tittle>BAMP</tittle>
+</head>
+<body>
+    <h2>Inicio</h2>
+    <ul>
+        <li><a href={% url 'home' %}>Inicio</a></li>
+        <li><a href={% url 'productos' %}>Productos</a></li>
+        {% if request.user.is_authenticated %}
+            <li><href={% url 'exit' %}>Salir</href></li>
+        {% else %}
+            <li><a href={% url 'login' %}>Iniciar sesión</a></li>
+        {% endif %}
+
+       
+    </ul>
+
+    {% block content %}{% endblock %}
+
+</body>
+
+
+
+
+</html>
