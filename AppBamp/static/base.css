@@ -1,60 +1,62 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #f8fcff, #d4e2ed);
-  }
-  
-  .container {
-    max-width: 600px;
-    margin: 100px auto;
-    padding: 20px;
-    text-align: center;
-    background: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-  }
-  
-  h1, h2 {
-    color: #333;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  li {
-    display: inline-block;
-    margin-right: 20px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  a:hover {
-    color: #007bff;
-  }
-  
-  button {
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2193b0;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+li {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Specific styles for links */
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  background-color: #eee;
+}
+
+/* Specific styles for the login/logout link */
+.login-logout {
+  float: right;
+}
+
+/* Styles for the content block */
+.content {
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .content {
     width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
   }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+}
