@@ -52,12 +52,10 @@ nav ul li a:hover{
   
 }
 
-/* Specific styles for the login/logout link */
 .login-logout {
   float: right;
 }
 
-/* Styles for the content block */
 .content {
   padding: 20px;
   margin: 20px auto;
@@ -80,7 +78,6 @@ footer{
   color: black;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 768px) {
   .content {
     width: 100%;
