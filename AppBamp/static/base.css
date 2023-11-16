@@ -27,17 +27,29 @@ a {
   text-decoration: none;
   color: #333;
 }
-
-/* Specific styles for links */
-.nav-link {
+nav{
+  float: right;
+  vertical-align: middle;
+}
+nav ul{
+  margin: 0;
+  padding: 0;
+}
+nav ul li{
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
+  vertical-align: middle;
 }
 
-.nav-link:hover {
-  background-color: #eee;
+nav ul li a{
+  color: darkgray;
+  padding: 10px; /*Esto hace ancho grande cuando pones encima*/
+  text-decoration: none;/*para qui*/
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+nav ul li a:hover{
+  background: gray;
+  
 }
 
 /* Specific styles for the login/logout link */
@@ -52,6 +64,20 @@ a {
   width: 80%;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+footer{
+    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  background-color: white;
+  color: black;
 }
 
 /* Media query for smaller screens */
