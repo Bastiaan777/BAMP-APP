@@ -11,8 +11,9 @@
 <body>
     <nav>
     <ul>
-        <li><a href={% url 'ciudades' %}>Inicio</a></li>
-        <li><a href={% url 'home' %}>Perfil</a></li>
+        <li><a href={% url 'home' %}>Inicio</a></li>
+        <li><a href={% url 'ciudades' %}>Ciudades</a></li>
+        <li><a href={% url 'perfil' %}>Perfil</a></li>
         {% if request.user.is_authenticated %}
         <li><a href={% url 'exit' %}>Salir</a></li>
         {% else %}

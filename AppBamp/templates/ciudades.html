@@ -1,3 +1,7 @@
+{%extends 'base.html' %}
+
+{% block content %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -10,18 +14,7 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href={% url 'ciudades' %}>Inicio</a></li>
-            <li><a href={% url 'home' %}>Perfil</a></li>
-            {% if request.user.is_authenticated %}
-            <li><a href={% url 'login' %}>Salir</a></li>
-            {% else %}
-            <li><a href={% url 'login' %}>Iniciar sesión</a></li>
-            {% endif %}
-    
-        </ul>
-        </nav>
+
   <div class="container">
     <h1>¡Selecciona la ciudad deseada!</h1>
     <h2>Ciudades a las que llegamos:</h2>
@@ -45,15 +38,6 @@
   </script>
   </body>
   
-<footer>
-    <h2> ¡Contácta con nosotros!</h2>
-    <a href = "https://www.linkedin.com/search/results/all/?keywords=controller&origin=AUTO_COMPLETE&searchId=875dc6bf-8b73-4dec-95fb-f22daa84e0ae&sid=qBb&spellCorrectionEnabled=false"> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" alt = "Lindekin" width="33" height="33" style="vertical-align: middle;"> </a>
-    
-    <a href = "https://www.youtube.com/channel/UClnc9grzbZYMvTMFdfSrH7w"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/YouTube_social_white_square_%282017%29.svg/1200px-YouTube_social_white_square_%282017%29.svg.png" alt = "Youtube" width = "50" height="50" style="vertical-align: middle;"> </a>
-    
-    <a href = "home.html"> <img src = "https://upload.wikimedia.org/wikipedia/commons/2/26/Logo_Sitio_Web.png" alt= "Web" width = "33" height = "33" style = "vertical-align: middle;"></a>
-
-    
-  </footer>
 </html>
+{% endblock %}
   

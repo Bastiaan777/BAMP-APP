@@ -40,18 +40,27 @@ def exit(request):
     return render(request, 'registration/login.html')
 
 def ciudades(request):
-    ciudades = Ciudad.objects.all()
-    context = {'ciudades': ciudades}
-    return render(request, 'ciudades.html', context)
+    if(request.user.is_authenticated):
+        ciudades = Ciudad.objects.all()
+        context = {'ciudades': ciudades}
+        return render(request, 'ciudades.html', context)
+    else:
+        return render(request, 'registration/login.html')
+        #alert
+def perfil(request):
+    return render(request, 'perfil.html')
+
 
 @require_POST #la view es la que interactua con la base de datos
 def categoria_restaurante(request):
+
     # Retrieve the data from the form submission
-    id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
-    ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
-    categorias = CategoriaRestaurante.objects.filter(ciudades=ciudad) #ya tenemos las categorias de la ciudad seleccionada
-    contexto = {'categorias': categorias} 
-    return render(request, 'categorias_restaurante.html', contexto)
+        id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
+        ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
+        categorias = CategoriaRestaurante.objects.filter(ciudades=ciudad) #ya tenemos las categorias de la ciudad seleccionada
+        contexto = {'categorias': categorias} 
+        return render(request, 'categorias_restaurante.html', contexto)
+
     
 
 
