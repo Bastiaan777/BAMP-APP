@@ -18,11 +18,13 @@ header.ul {
   margin: 0;
   display: flex;
   align-items: center;
+  position: fixed;
 }
 
 header.li {
   margin-bottom: 10px;
   margin-right: 10px;
+  position: fixed;
 }
 
 a {
@@ -32,6 +34,7 @@ a {
 nav{
   float: right;
   vertical-align: middle;
+  
 }
 nav ul{
   margin: 0;
