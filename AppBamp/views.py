@@ -1,18 +1,35 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login, logout
 from .models import Ciudad
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Usuario
 from .models import CategoriaRestaurante
 from django.views.decorators.http import require_POST 
 
 def login(request):
-    usuarios = Usuario.objects.all()
-    context = {'usuarios' : usuarios}
-    return render(request, 'login.html', context)
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        try:
+            user = authenticate(request, username = username, password = password)
+        except Exception as e:
+            return HttpResponse(e)
+        if(user is not None):
+            login(request, user)
+            return render(request, 'home.html')
+        else:
+            return HttpResponse('Usuario no creado')
+ 
+    return render(request, 'registration/login.html')
 
 def home(request):
-    return render(request, 'home.html')
+    if(request.user.is_authenticated):
+        return render(request, 'home.html')
+    else:
+        return render(request, 'registration/login.html')
+        #alert
 
 @login_required
 def productos(request):
@@ -20,7 +37,7 @@ def productos(request):
 
 def exit(request):
     logout(request)
-    return redirect('home')
+    return render(request, 'registration/login.html')
 
 def ciudades(request):
     ciudades = Ciudad.objects.all()

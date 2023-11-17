@@ -9,13 +9,12 @@
 </head>
 
 <body>
-    <h2>Inicio</h2>
     <nav>
     <ul>
         <li><a href={% url 'ciudades' %}>Inicio</a></li>
         <li><a href={% url 'home' %}>Perfil</a></li>
         {% if request.user.is_authenticated %}
-        <li><a href={% url 'login' %}>Salir</a></li>
+        <li><a href={% url 'exit' %}>Salir</a></li>
         {% else %}
         <li><a href={% url 'login' %}>Iniciar sesión</a></li>
         {% endif %}
@@ -26,6 +25,8 @@
     {% block content %}{% endblock %}
 
 </body>
+
+
 
 <footer>
     <h2> ¡Contácta con nosotros!</h2>
