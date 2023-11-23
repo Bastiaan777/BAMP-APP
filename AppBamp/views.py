@@ -50,6 +50,9 @@ def ciudades(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
+def registro(request):
+    return render(request, 'registration/registro.html')
+
 
 @require_POST #la view es la que interactua con la base de datos
 def categoria_restaurante(request):
