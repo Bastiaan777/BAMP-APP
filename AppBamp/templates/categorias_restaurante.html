@@ -15,24 +15,6 @@
   <h1>CATEGORÍAS</h1>
 </div>
 
-<div class="navbar">
-  <span class="open-slide">
-    <a href="#" onclick="openSlideMenu()">
-      <svg width="30" height="30">
-          <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
-          <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
-          <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
-      </svg>
-    </a>
-  </span>
-</div>
-
-<div id="side-menu" class="side-nav">
-  <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-  <a href="#categoria1">Sobre nosotros</a>
-  <a href="#categoria2">Proyectos futuros</a>
-  
-</div>
 
 <div class="container">
     
@@ -52,22 +34,12 @@
     
     {% endfor %}
   </div>
-  <div class="footer">
-    <button onclick="window.history.back();">Atrás</button>
-  </div>
+
 
 
 <br><br><br><br><br><br><br><br>
 
-<script>
-function openSlideMenu() {
-  document.getElementById('side-menu').style.width = '250px';
-}
 
-function closeSlideMenu() {
-  document.getElementById('side-menu').style.width = '0';
-}
-</script>
 
 </body>
 </html>

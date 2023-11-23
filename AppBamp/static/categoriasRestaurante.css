@@ -11,17 +11,8 @@ body, html {
     background: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
-  .header h1 {
-    margin: 0;
-    color: #333;
-  }
-  .container {
-    max-width: 600px;
-    margin: 40px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+
+
   .category {
     background: white;
     border-radius: 50%;
@@ -52,59 +43,7 @@ body, html {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .footer {
-    text-align: center;
-    padding: 10px;
-    background: white;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+ 
 
-  .navbar {
-    height: 50px;
-    background-color: #333;
-    color: white;
-  }
-  
-  .open-slide {
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-  
-  .side-nav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: white;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-  }
-  
-  .side-nav a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 22px;
-    color: black;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .side-nav a:hover {
-    color: #f1f1f1;
-  }
-  
-  .side-nav .btn-close {
-    position: absolute;
-    top: 0;
-    right: 22px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
+
   
