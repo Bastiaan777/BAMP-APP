@@ -1,0 +1,13 @@
+{%extends 'base.html' %} {% load static %} {% block extra_head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/restaurantes.css' %}"
+/>
+<title>categorias de Restaurante</title>
+
+{% endblock %} {% block content %}
+<h1>RESTAURANTES</h1>
+{% for restaurante in restaurantes %}
+<h1>{{restaurante.nombreRestaurante}}</h1>
+{% endfor %} {% endblock %}

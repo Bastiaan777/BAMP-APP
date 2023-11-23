@@ -1,46 +1,33 @@
-{%extends 'base.html' %}
-{% block content %}
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'base.html' %} {% load static %} {% block extra_head %}
+<title>categorias de Restaurante</title>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/categoriasRestaurante.css' %}"
+/>
+<script src="{% static 'js/categoriasRestaurante.js' %}"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type= "text/css" href="{% static 'categoriasRestaurante.css' %}">
-    <title>categorias de Restaurante</title>
-</head>
-<body>
+{% endblock %} {% block content %}
 <div class="header">
   <h1>CATEGORÍAS</h1>
 </div>
 
+<form id="formulario-oculto" method="post" action="{% url 'restaurantes' %}">
+  {% csrf_token %}
+  <input type="hidden" name="id-categoria" id="input-categoria" />
+</form>
 
 <div class="container">
-    
-    {% for categoria in categorias %}
-    <div>
-      <h1> {{categoria.nombreCategoriaRestaurante}}</h1>
-      <div class="category">
-        
-        <img src="{{ categoria.imagen.url }}" alt="Imagen de la Categoria.">
-        
-    
-      </div>
-
+  {% for categoria in categorias %}
+  <div onclick="submitForm({{categoria.id}})">
+    <h1>{{categoria.nombreCategoriaRestaurante}}</h1>
+    <div class="category">
+      <img src="{{ categoria.imagen.url }}" alt="Imagen de la Categoria." />
     </div>
-    
-
-    
-    {% endfor %}
   </div>
+  {% endfor %}
+</div>
 
+<br /><br /><br /><br /><br /><br /><br /><br />
 
-
-<br><br><br><br><br><br><br><br>
-
-
-
-</body>
-</html>
 {% endblock %}

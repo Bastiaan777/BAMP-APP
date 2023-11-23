@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login, logout
-from .models import Ciudad
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Usuario
-from .models import CategoriaRestaurante
 from django.views.decorators.http import require_POST 
+
+from .models import * 
+
 
 def login(request):
     if request.method == 'POST':
@@ -58,11 +58,23 @@ def registro(request):
 def categoria_restaurante(request):
 
     # Retrieve the data from the form submission
-        id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
-        ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
-        categorias = CategoriaRestaurante.objects.filter(ciudades=ciudad) #ya tenemos las categorias de la ciudad seleccionada
-        contexto = {'categorias': categorias} 
-        return render(request, 'categorias_restaurante.html', contexto)
+    id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
+    ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
+    categorias = CategoriaRestaurante.objects.filter(ciudades=ciudad) #ya tenemos las categorias de la ciudad seleccionada
+    contexto = {'categorias': categorias} 
+    return render(request, 'categorias_restaurante.html', contexto)
+
+
+@require_POST
+def restaurantes(request):
+    id_categoria = request.POST.get('id-categoria')
+    print(id_categoria)
+    restaurantes = Restaurante.objects.filter(categoriaRestaurante_id=id_categoria)
+    contexto = {'restaurantes': restaurantes}
+    print(contexto)
+    return render(request, 'restaurantes.html', contexto)
+
+    
 
     
 

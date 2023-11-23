@@ -2,36 +2,35 @@
 <!DOCTYPE html>
 
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>BAMP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type= "text/css" href="{% static 'login.css' %}">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/login.css' %}"
+    />
+  </head>
 
-<body>
-
-
-
-<h3>LOGIN</h3>
-<br><br>
-<form action="{% url 'login' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="username" id="" placeholder="Nombre de usuario">
-    <br>
-    <input type="password" name="password" id="" placeholder="Constraseña">
-    <br>
-    <button type="submit">Iniciar sesión</button>
-    <div class="Registrate">
-        <p>  <a href = 'registro' target = "_blank"> ¡Regístrate! </a> </p>
-    </div>
-   
-
-
-
-</form>
-</body>
+  <body>
+    <h3>LOGIN</h3>
+    <br /><br />
+    <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="username"
+        id=""
+        placeholder="Nombre de usuario"
+      />
+      <br />
+      <input type="password" name="password" id="" placeholder="Constraseña" />
+      <br />
+      <button type="submit">Iniciar sesión</button>
+      <div class="Registrate">
+        <p><a href="registro" target="_blank"> ¡Regístrate! </a></p>
+      </div>
+    </form>
+  </body>
 </html>
-
-

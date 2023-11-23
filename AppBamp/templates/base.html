@@ -1,47 +1,64 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    {% block extra_head %}{% endblock %}
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>BAMP</title>
-    <link rel="stylesheet" type= "text/css" href="{% static 'base.css' %}">
-</head>
-
-<body>
+  <body>
     <nav>
-    <ul>
-        <li><a href={% url 'home' %}>Inicio</a></li>
-        <li><a href={% url 'ciudades' %}>Ciudades</a></li>
-        <li><a href={% url 'perfil' %}>Perfil</a></li>
+      <ul>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'ciudades' %}">Ciudades</a></li>
+        <li><a href="{% url 'perfil' %}">Perfil</a></li>
         {% if request.user.is_authenticated %}
-        <li><a href={% url 'exit' %}>Salir</a></li>
+        <li><a href="{% url 'exit' %}">Salir</a></li>
         {% else %}
-        <li><a href={% url 'login' %}>Iniciar sesión</a></li>
+        <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
         {% endif %}
-
-    </ul>
+      </ul>
     </nav>
-
     {% block content %}{% endblock %}
+  </body>
 
-</body>
+  <footer>
+    <h2>¡Contácta con nosotros!</h2>
+    <a
+      href="https://www.linkedin.com/search/results/all/?keywords=controller&origin=AUTO_COMPLETE&searchId=875dc6bf-8b73-4dec-95fb-f22daa84e0ae&sid=qBb&spellCorrectionEnabled=false"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
+        alt="Lindekin"
+        width="33"
+        height="33"
+        style="vertical-align: middle"
+      />
+    </a>
 
+    <a href="https://www.youtube.com/channel/UClnc9grzbZYMvTMFdfSrH7w"
+      ><img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/YouTube_social_white_square_%282017%29.svg/1200px-YouTube_social_white_square_%282017%29.svg.png"
+        alt="Youtube"
+        width="50"
+        height="50"
+        style="vertical-align: middle"
+      />
+    </a>
 
-
-<footer>
-    <h2> ¡Contácta con nosotros!</h2>
-    <a href = "https://www.linkedin.com/search/results/all/?keywords=controller&origin=AUTO_COMPLETE&searchId=875dc6bf-8b73-4dec-95fb-f22daa84e0ae&sid=qBb&spellCorrectionEnabled=false"> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" alt = "Lindekin" width="33" height="33" style="vertical-align: middle;"> </a>
-    
-    <a href = "https://www.youtube.com/channel/UClnc9grzbZYMvTMFdfSrH7w"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/YouTube_social_white_square_%282017%29.svg/1200px-YouTube_social_white_square_%282017%29.svg.png" alt = "Youtube" width = "50" height="50" style="vertical-align: middle;"> </a>
-    
-    <a href = "home.html"> <img src = "https://upload.wikimedia.org/wikipedia/commons/2/26/Logo_Sitio_Web.png" alt= "Web" width = "33" height = "33" style = "vertical-align: middle;"></a>
-
-    
+    <a href="home.html">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/2/26/Logo_Sitio_Web.png"
+        alt="Web"
+        width="33"
+        height="33"
+        style="vertical-align: middle"
+    /></a>
   </footer>
 
   <div class="footer">
     <button onclick="window.history.back();">Atrás</button>
   </div>
-
 </html>
