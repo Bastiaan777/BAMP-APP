@@ -1,24 +1,10 @@
-{%extends 'base.html' %}
+{%extends 'base.html' %} {% load static %} {% block extra_head %}
 
-{% block content %}
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
+<title>Ciudades</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type= "text/css" href="{% static 'home.css' %}">
-    <title>Ciudades</title>
-</head>
-<body>
+{% endblock %} {% block content %}
 
 <p>PROCESANDO . . .</p>
 
-
-</body>
-
-
-</html>
 {% endblock %}
-
