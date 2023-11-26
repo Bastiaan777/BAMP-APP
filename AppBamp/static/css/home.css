@@ -1,19 +1,28 @@
 p {
-    font-size: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-.pnghome {
-    text-align: center;
-  }
-
-h3{
-    margin-left: 600px;
+  font-size: 25px;
+  margin-bottom: 20px; /* Aumentar si quieres más espacio después de <p> */
+  text-align: center;
+  color: white;
+  margin-top: 30px;
 }
 
-  
+.pnghome {
+  text-align: center;
+}
+
+h3 {
+  font-size: 30px;
+  margin-top: 10px; /* Espacio antes de <h3> */
+  margin-bottom: 10px; /* Espacio después de <h3> */
+  color: white;
+  text-align: center; /* Centra el texto dentro de <h3> */
+  margin-left: auto; /* Centra <h3> horizontalmente */
+  margin-right: auto; /* Centra <h3> horizontalmente */
+}
 
 
-
-  
+.fondo-completo {
+  background-color: rgb(35, 121, 208); /* El color de fondo que desees */
+  min-height: 100vh; /* Asegurar que cubra toda la altura de la pantalla */
+  padding: 20px; /* Agregar algo de espacio alrededor */
+}

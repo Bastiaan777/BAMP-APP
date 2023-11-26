@@ -9,8 +9,13 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-contenido">
+        <div class="nombreWeb">
+          <h1>BAMP</h1>
+        </div>
     <nav>
-      <ul>
+      <ul class="estilo-header">
         <li><a href="{% url 'home' %}">Inicio</a></li>
         <li><a href="{% url 'ciudades' %}">Ciudades</a></li>
         <li><a href="{% url 'perfil' %}">Perfil</a></li>
@@ -21,7 +26,11 @@
         {% endif %}
       </ul>
     </nav>
+  </div>
+</header>
+
     {% block content %}{% endblock %}
+    <!-- <button onclick="window.history.back();">Atrás</button> -->
   </body>
 
   <footer>
@@ -58,7 +67,5 @@
     /></a>
   </footer>
 
-  <div class="footer">
-    <button onclick="window.history.back();">Atrás</button>
-  </div>
+ 
 </html>
