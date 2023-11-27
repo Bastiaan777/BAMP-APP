@@ -14,24 +14,22 @@
         <div class="nombreWeb">
           <h1>BAMP</h1>
         </div>
-    <nav>
-      <ul class="estilo-header">
-        <li><a href="{% url 'home' %}">Inicio</a></li>
-        <li><a href="{% url 'ciudades' %}">Ciudades</a></li>
-        <li><a href="{% url 'perfil' %}">Perfil</a></li>
-        {% if request.user.is_authenticated %}
-        <li><a href="{% url 'exit' %}">Salir</a></li>
-        {% else %}
-        <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
-        {% endif %}
-      </ul>
-    </nav>
-  </div>
-</header>
+        <nav>
+          <ul class="estilo-header">
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <li><a href="{% url 'ciudades' %}">Ciudades</a></li>
+            <li><a href="{% url 'perfil' %}">Perfil</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'exit' %}">Salir</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<div class="fondo-completo">
-  {% block content %} {% endblock %}
-</div>
+    <div class="fondo-completo">{% block content %} {% endblock %}</div>
     <!-- <button onclick="window.history.back();">Atrás</button> -->
   </body>
 
@@ -68,6 +66,4 @@
         style="vertical-align: middle"
     /></a>
   </footer>
-
- 
 </html>

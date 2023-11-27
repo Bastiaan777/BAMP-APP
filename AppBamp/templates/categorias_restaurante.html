@@ -9,7 +9,7 @@
 
 {% endblock %} {% block content %}
 <div class="header">
-  <h2>CATEGORÍAS</h2>
+  <h4>CATEGORÍAS</h4>
 </div>
 
 <form id="formulario-oculto" method="post" action="{% url 'restaurantes' %}">
@@ -20,7 +20,7 @@
 <div class="container">
   {% for categoria in categorias %}
   <div onclick="submitForm({{categoria.id}})">
-    <h1>{{categoria.nombreCategoriaRestaurante}}</h1>
+    <h5>{{categoria.nombreCategoriaRestaurante}}</h5>
     <div class="category">
       <img src="{{ categoria.imagen.url }}" alt="Imagen de la Categoria." />
     </div>
