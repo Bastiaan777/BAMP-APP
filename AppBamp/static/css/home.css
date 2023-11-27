@@ -21,8 +21,4 @@ h3 {
 }
 
 
-.fondo-completo {
-  background-color: rgb(35, 121, 208); /* El color de fondo que desees */
-  min-height: 100vh; /* Asegurar que cubra toda la altura de la pantalla */
-  padding: 20px; /* Agregar algo de espacio alrededor */
-}
+

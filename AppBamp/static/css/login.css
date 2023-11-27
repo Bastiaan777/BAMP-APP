@@ -2,32 +2,33 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #6dd5ed, #2193b0); 
+    background-color: rgb(35, 121, 208);
   }
   
   h3 {
+    font-size: 30px;
     text-align: center;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
     position: relative;
     top: 25%;
     transform: translateY(-25%);
+    padding-bottom: 30px;
   }
   
   form {
-    width: 300px;
+    width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     position: relative;
     top: 35%;
     transform: translateY(-50%);
-  }
-  .Registrate{
-
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    
   }
   
   input {
@@ -36,13 +37,31 @@ body, html {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    
   }
   
   button {
     background-color: #007bff;
     color: #fff;
-    padding: 10px 20px;
+    padding: 20px 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    
   }
+
+  button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .centrar-boton {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si es necesario */
+}

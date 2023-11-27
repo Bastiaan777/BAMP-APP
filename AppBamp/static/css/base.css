@@ -35,7 +35,7 @@ h2 {
 header {
   background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 15px;
   width: 100%; /* Asegurar que el header ocupe toda la anchura */
 }
 
@@ -108,4 +108,10 @@ footer > * { /* Se aplica a todos los elementos directos dentro del footer */
     width: 100%;
     margin: 0; /* Eliminar margen en dispositivos móviles */
   }
+}
+
+.fondo-completo {
+  background-color: rgb(35, 121, 208); /* El color de fondo que desees */
+  min-height: 100vh; /* Asegurar que cubra toda la altura de la pantalla */
+  padding: 20px; /* Agregar algo de espacio alrededor */
 }

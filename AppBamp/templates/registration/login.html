@@ -18,8 +18,7 @@
     <br /><br />
     <form action="{% url 'login' %}" method="post">
       {% csrf_token %}
-      <input
-        type="text"
+      <input type="text"
         name="username"
         id=""
         placeholder="Nombre de usuario"
@@ -27,8 +26,10 @@
       <br />
       <input type="password" name="password" id="" placeholder="Constraseña" />
       <br />
+      <div class="centrar-boton">
       <button type="submit">Iniciar sesión</button>
-      <div class="Registrate">
+    </div>
+      <div class="centrar-boton">
         <p><a href="registro" target="_blank"> ¡Regístrate! </a></p>
       </div>
     </form>

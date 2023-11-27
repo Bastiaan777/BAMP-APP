@@ -7,8 +7,8 @@
 {% endblock %} {% block content %}
 
 <div class="container">
-  <h1>¡Selecciona la ciudad deseada!</h1>
-  <h2>Ciudades a las que llegamos:</h2>
+  <h2>¡Selecciona la ciudad deseada!</h1>
+  <h3>Ciudades a las que llegamos:</h2>
   <form action="{% url 'categoria_restaurante' %}" method="post">
     <!-- categoria_restaurante es el nombre de la url a la queremos ir, en urls.py-->
     {% csrf_token %}
