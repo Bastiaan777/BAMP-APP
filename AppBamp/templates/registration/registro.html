@@ -15,6 +15,7 @@
       <div id="formulario">
         <h1>FORMULARIO</h1>
       </div>
+      <form action="{% url 'registro' %}" method="post">
 
       <div id="tabla-formulario">
         <label for="nombre">Nombre</label>
@@ -65,7 +66,8 @@
           id="tabla"
         />
       </div>
-      <button name="registro" type="submit" id="button">¡Registrarse!</button>
+  
+      <p><a href="login" target="_blank"> ¡Regístrarse! </a></p>
     </form>
   </body>
 </html>

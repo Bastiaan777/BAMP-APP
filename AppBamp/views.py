@@ -4,6 +4,8 @@ from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.http import require_POST 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from .models import * 
 
@@ -50,8 +52,17 @@ def ciudades(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
+
 def registro(request):
-    return render(request, 'registration/registro.html')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/registro.html', {'form': form})
+
 
 
 @require_POST #la view es la que interactua con la base de datos
