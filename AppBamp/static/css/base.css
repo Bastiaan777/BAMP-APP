@@ -45,8 +45,20 @@ header {
   align-items: center;
 }
 
+.nombreWeb {
+  display: flex; /* Establece el contenedor como un flexbox */
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+}
+
 .nombreWeb h1 {
-  margin: 0;
+  margin: 0; /* Elimina el margen del título */
+  flex-grow: 1; /* Permite que el título ocupe el espacio disponible, empujando el logo hacia la derecha */
+}
+
+.logoBamp {
+  width: 40px; /* Ancho de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  margin-left: 10px;
 }
 
 /* Estilos para la navegación */

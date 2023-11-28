@@ -4,22 +4,25 @@ body, html {
   height: 100%;
  
 }
+h4{
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
 h5{
   font-family: 'Arial', sans-serif;
   font-size: 30px;
   color: white;
   text-align: center;
 }
-h4{
-  font-family: 'Arial', sans-serif;
-  font-size: 30px;
-  color: white;
-  text-align: center;
-}
+
 
 .container {
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 675px;
+  margin: 40px auto 1px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -43,7 +46,13 @@ h4{
   height: 100%;
   border-radius: 50%;
   object-fit: cover; /* Asegura que la imagen cubra el círculo completo */
+  transition: transform 0.3s ease; /* Agrega una transición suave */
 }
+
+.category img:hover {
+  transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+}
+
 .category-text {
   position: absolute;
   bottom: -20px;
