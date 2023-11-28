@@ -13,6 +13,7 @@ urlpatterns = [
     path('logout/', views.exit, name = "exit"),
     path('perfil', views.perfil, name = "perfil"),
     path('logout/registro', views.registro, name="registro"),
+    path('registro', views.registro, name="registro"),
     path('restaurantes', views.restaurantes, name="restaurantes"),
 
     #path('accounts/', include('django.contrib.auth.urls')),
