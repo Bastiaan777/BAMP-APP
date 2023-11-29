@@ -12,7 +12,7 @@ p {
 
 h3 {
   font-size: 30px;
-  margin-top: 10px; /* Espacio antes de <h3> */
+  margin-top: 20px; /* Espacio antes de <h3> */
   margin-bottom: 10px; /* Espacio después de <h3> */
   color: white;
   text-align: center; /* Centra el texto dentro de <h3> */
