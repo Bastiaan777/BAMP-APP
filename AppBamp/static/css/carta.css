@@ -1,0 +1,10 @@
+.input-row {
+    display: flex;
+    align-items: center;
+}
+.input-row label {
+    margin-right: 10px;
+}
+input[type="number"] {
+    width: 3rem; /* Initial size, enough for 1 digit */
+}

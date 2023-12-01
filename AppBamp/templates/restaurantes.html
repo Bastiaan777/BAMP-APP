@@ -4,10 +4,20 @@
   type="text/css"
   href="{% static 'css/restaurantes.css' %}"
 />
+<script src="{% static 'js/restaurantes.js' %}"></script>
 <title>categorias de Restaurante</title>
 
 {% endblock %} {% block content %}
+
 <h1>RESTAURANTES</h1>
+
+<form id="formulario-oculto" method="post" action="{% url 'carta' %}">
+  {% csrf_token %}
+  <input type="hidden" name="id-restaurante" id="input-restaurante" />
+</form>
+
 {% for restaurante in restaurantes %}
-<h1>{{restaurante.nombreRestaurante}}</h1>
-{% endfor %} {% endblock %}
+<div onclick="enviarFormulario({{restaurante.id}})">
+  <h1>{{restaurante.nombreRestaurante}}</h1>
+</div>
+{% endfor %}{% endblock %}

@@ -22,13 +22,14 @@ class Restaurante(models.Model):
         return self.nombreRestaurante
     
    
-
+"""
 class Carta(models.Model):
     numeroArticulos = models.IntegerField(default = 0)
     restaurante = models.ForeignKey(Restaurante, on_delete = models.CASCADE)
 
     def __str__(self):
-        return self.idCarta
+        return self.id
+ """
     
     
 
@@ -36,7 +37,7 @@ class Producto(models.Model):
     descripcion = models.TextField(max_length = 600)
     precio = models.IntegerField()
     nombreProducto = models.CharField(max_length = 50)
-    carta = models.ForeignKey(Carta, on_delete = models.CASCADE)
+    restaurante = models.ForeignKey(Restaurante, on_delete = models.CASCADE)
     def __str__(self):
         return self.nombreProducto
     
@@ -56,6 +57,7 @@ class Usuario(models.Model):
 class Pedido(models.Model):
     importePedido = models.IntegerField()
     usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
+    productos = models.ManyToManyField(Producto)
     def __str__(self):
         return self.idPedido
     

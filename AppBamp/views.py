@@ -79,11 +79,38 @@ def categoria_restaurante(request):
 @require_POST
 def restaurantes(request):
     id_categoria = request.POST.get('id-categoria')
-    print(id_categoria)
     restaurantes = Restaurante.objects.filter(categoriaRestaurante_id=id_categoria)
     contexto = {'restaurantes': restaurantes}
-    print(contexto)
     return render(request, 'restaurantes.html', contexto)
+
+
+@require_POST
+def carta(request):
+    id_restaurante = request.POST.get('id-restaurante')
+    lista_productos = Producto.objects.filter(restaurante_id=id_restaurante)
+    print(lista_productos)
+    contexto = {'carta':lista_productos}
+    return render(request, 'carta.html', contexto)
+
+@require_POST
+def pedido(request):
+    pedido = Pedido()
+    pedido.importePedido = 0
+    pedido.save()
+    for nombre_variable, valor in request.POST.items():
+        if nombre_variable.startswith('cantidad_'):
+            id_producto = nombre_variable.split('_')[1]
+            producto = Producto.objects.get(pk=id_producto)
+            pedido.productos.add(producto)
+            pedido.importePedido += producto.precio
+    pedido.save()        
+    return render(request, 'home.html')
+    
+
+
+
+
+    
 
     
 

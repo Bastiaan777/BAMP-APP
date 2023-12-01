@@ -1,0 +1,21 @@
+{%extends 'base.html' %} {% load static %} {% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/carta.css' %}" />
+{% endblock %} {% block content %}
+<h1>CARTA</h1>
+<form method="post" action="{% url 'pedido' %}">
+  {% csrf_token %} {% for producto in carta %}
+  <div class="input-row">
+    <label for="cantidad_{{ producto.id }}"
+      >{{producto.nombreProducto}} - {{producto.precio}}€</label
+    >
+    <input
+      type="number"
+      id="cantidad_{{ producto.id }}"
+      name="cantidad_{{ producto.id }}"
+      min="0"
+    />
+  </div>
+  {% endfor %}
+  <button type="submit">Confirmar Pedido</button>
+</form>
+{% endblock %}

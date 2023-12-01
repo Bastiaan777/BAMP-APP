@@ -18,6 +18,9 @@ urlpatterns = [
     path('logout/registro', views.registro, name="registro"),
     path('registro', views.registro, name="registro"),
     path('restaurantes', views.restaurantes, name="restaurantes"),
+    path('restaurantes/carta', views.carta, name="carta"),
+    path('pedido', views.pedido, name="pedido"),
+
 
     #path('accounts/', include('django.contrib.auth.urls')),
 ]
