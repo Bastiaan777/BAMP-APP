@@ -3,6 +3,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 
+
+class PerfilUsuario(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE) #usuario es un objeto
+    fechaNacimiento = models.DateField(blank=True) #puede estar vacio
+    direccion = models.TextField()
+    def __str__(self):
+        return self.usuario.username
+
+
 class Ciudad(models.Model):
     nombre = models.CharField(max_length=50)
     
@@ -23,63 +32,29 @@ class Restaurante(models.Model):
 
     def __str__(self):
         return self.nombreRestaurante
-    
-   
-"""
-class Carta(models.Model):
-    numeroArticulos = models.IntegerField(default = 0)
-    restaurante = models.ForeignKey(Restaurante, on_delete = models.CASCADE)
 
-    def __str__(self):
-        return self.id
- """
-    
-    
 
 class Producto(models.Model):
-    descripcion = models.TextField(max_length = 600)
+    descripcion = models.TextField(max_length=600)
     precio = models.IntegerField()
-    nombreProducto = models.CharField(max_length = 50)
-    restaurante = models.ForeignKey(Restaurante, on_delete = models.CASCADE)
+    nombreProducto = models.CharField(max_length=50)
+    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombreProducto
     
-    
-
-class PerfilUsuario(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE) #usuario es un objeto
-    fechaNacimiento = models.DateField(blank=True) #puede estar vacio
-    direccion = models.TextField()
-    def __str__(self):
-        return self.usuario.username
-    
 
 class Pedido(models.Model):
-    importePedido = models.IntegerField()
-    usuario = models.ForeignKey(PerfilUsuario, on_delete = models.CASCADE)
-    productos = models.ManyToManyField(Producto)
+    importePedido = models.IntegerField(default=0)
+    usuario = models.ForeignKey(PerfilUsuario, on_delete=models.CASCADE)
+    productos = models.ManyToManyField(Producto, through="PedidoProducto")
     def __str__(self):
-        return self.idPedido
-    
-    
-"""
-CREEMOS QUE ESTO NO HACE FALTA Y LO PODREMOS BORRAR
+        return f"{self.id} - {self.usuario.usuario.username} - {self.importePedido}"
+
+
 class PedidoProducto(models.Model):
-    idPedido = models.ForeignKey(Pedido, on_delete = models.CASCADE)
-    idProducto = models.ForeignKey(Producto, on_delete = models.CASCADE)
-"""
-    
-"""
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        PerfilUsuario.objects.create(usuario=instance)
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
 
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.perfilusuario.save()
-"""
-
-
-
- 
+    class Meta:
+        unique_together = ("pedido", "producto")

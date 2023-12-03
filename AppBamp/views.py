@@ -4,9 +4,9 @@ from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.http import require_POST 
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .forms import PerfilUsuarioForm
+from .forms import PerfilUsuarioForm, ExtendedUserCreationForm
+
 
 from .models import * 
 
@@ -59,7 +59,7 @@ def perfil(request):
 def registro(request):
     if request.method == 'POST':
         print("es un post")
-        user_form = UserCreationForm(request.POST)
+        user_form = ExtendedUserCreationForm(request.POST)
         perfil_usuario_form = PerfilUsuarioForm(request.POST)
         print("Se han creado los formularios")
         print(f"USER FORM IS VALID {user_form.is_valid()}")
@@ -73,7 +73,7 @@ def registro(request):
             return redirect('home')
         else:
             print(user_form.errors)
-            print(user_form.errors)
+            print(perfil_usuario_form.errors)
 
     return render(request, 'registration/registro.html')
 
@@ -101,7 +101,7 @@ def restaurantes(request):
 @require_POST
 def carta(request):
     id_restaurante = request.POST.get('id-restaurante')
-    lista_productos = Producto.objects.filter(restaurante_id=id_restaurante)
+    lista_productos = Producto.objects.filter(restaurante_id=id_restaurante) #filter -> Esperas mas de un resultado en la query
     print(lista_productos)
     contexto = {'carta':lista_productos}
     return render(request, 'carta.html', contexto)
@@ -109,20 +109,20 @@ def carta(request):
 @require_POST
 def pedido(request):
     if request.user.is_authenticated:
-        #usuario = Usuario.objects.
         print(request.user)
         pedido = Pedido()
-        pedido.importePedido = 0
-
-        pedido.usuario = request.user
+        usuario = User.objects.get(username=request.user) #cargamos el objeto User con el username
+        perfil_usuario = PerfilUsuario.objects.get(usuario=usuario) #get es algo unico
+        pedido.usuario = perfil_usuario
         pedido.save()
         for nombre_variable, valor in request.POST.items():
             if nombre_variable.startswith('cantidad_'):
                 id_producto = nombre_variable.split('_')[1]
                 producto = Producto.objects.get(pk=id_producto)
-                pedido.productos.add(producto)
-                pedido.importePedido += producto.precio
-        pedido.save()  
+                if int(valor) > 0:
+                    pedido.productos.add(producto)
+                    pedido.importePedido += producto.precio * int(valor)
+        pedido.save()
         return render(request, 'home.html') 
     else:
         return HttpResponse('Usuario no autenticado')
