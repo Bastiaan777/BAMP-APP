@@ -1,0 +1,41 @@
+body{
+    color: black;
+    
+    background-color: whitesmoke;
+    padding-top: 10px;
+    background-size: cover;
+    margin: 0 auto; /*Para que no quede margen*/
+  }
+  
+.restaurante{
+    margin-bottom: 20px;
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    background-color: whitesmoke;
+  }
+  .contenido{
+    display: flex;
+    align-items: center;
+  }
+
+  .descripcion{
+    flex: 10;
+  }
+
+    .restaurante p{
+        margin-bottom: 10px;
+    }
+
+    .restaurante img{
+        max-width: 40%;
+        height: auto;
+        margin-right: 20px;
+    }
+
+    .restaurante a{
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 5px 10px;
+        
+    }
