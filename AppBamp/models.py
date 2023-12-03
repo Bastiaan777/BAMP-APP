@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
 
 class Ciudad(models.Model):
     nombre = models.CharField(max_length=50)
@@ -43,20 +46,17 @@ class Producto(models.Model):
     
     
 
-class Usuario(models.Model):
-    nombreUsuario = models.CharField(max_length = 50)
-    apellidoUsuario = models.CharField(max_length = 50)
-    fechaNacimiento = models.DateTimeField()
+class PerfilUsuario(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE) #usuario es un objeto
+    fechaNacimiento = models.DateField(blank=True) #puede estar vacio
     direccion = models.TextField()
-    email = models.TextField()
-    ciudad = models.ForeignKey(Ciudad, on_delete = models.CASCADE)
     def __str__(self):
-        return self.nombreUsuario
+        return self.usuario.username
     
 
 class Pedido(models.Model):
     importePedido = models.IntegerField()
-    usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
+    usuario = models.ForeignKey(PerfilUsuario, on_delete = models.CASCADE)
     productos = models.ManyToManyField(Producto)
     def __str__(self):
         return self.idPedido
@@ -69,5 +69,17 @@ class PedidoProducto(models.Model):
     idProducto = models.ForeignKey(Producto, on_delete = models.CASCADE)
 """
     
+"""
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        PerfilUsuario.objects.create(usuario=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.perfilusuario.save()
+"""
+
+
 
  

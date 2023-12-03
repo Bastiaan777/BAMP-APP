@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.http import require_POST 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .forms import PerfilUsuarioForm
 
 from .models import * 
 
@@ -25,6 +26,7 @@ def login(request):
             return HttpResponse('Usuario no creado')
  
     return render(request, 'registration/login.html')
+    
 
 def home(request):
     if(request.user.is_authenticated):
@@ -32,6 +34,7 @@ def home(request):
     else:
         return render(request, 'registration/login.html')
         #alert
+   
 
 @login_required
 def productos(request):
@@ -55,13 +58,24 @@ def perfil(request):
 
 def registro(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
+        print("es un post")
+        user_form = UserCreationForm(request.POST)
+        perfil_usuario_form = PerfilUsuarioForm(request.POST)
+        print("Se han creado los formularios")
+        print(f"USER FORM IS VALID {user_form.is_valid()}")
+        print(f"PERFIL FORM IS VALID {perfil_usuario_form.is_valid()}")
+        if user_form.is_valid() and perfil_usuario_form.is_valid():
+            print("los formularios son validos")
+            user = user_form.save()
+            perfil_usuario = perfil_usuario_form.save(commit=False) 
+            perfil_usuario.usuario = user
+            perfil_usuario.save()
             return redirect('home')
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/registro.html', {'form': form})
+        else:
+            print(user_form.errors)
+            print(user_form.errors)
+
+    return render(request, 'registration/registro.html')
 
 
 
@@ -94,17 +108,27 @@ def carta(request):
 
 @require_POST
 def pedido(request):
-    pedido = Pedido()
-    pedido.importePedido = 0
-    pedido.save()
-    for nombre_variable, valor in request.POST.items():
-        if nombre_variable.startswith('cantidad_'):
-            id_producto = nombre_variable.split('_')[1]
-            producto = Producto.objects.get(pk=id_producto)
-            pedido.productos.add(producto)
-            pedido.importePedido += producto.precio
-    pedido.save()        
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        #usuario = Usuario.objects.
+        print(request.user)
+        pedido = Pedido()
+        pedido.importePedido = 0
+
+        pedido.usuario = request.user
+        pedido.save()
+        for nombre_variable, valor in request.POST.items():
+            if nombre_variable.startswith('cantidad_'):
+                id_producto = nombre_variable.split('_')[1]
+                producto = Producto.objects.get(pk=id_producto)
+                pedido.productos.add(producto)
+                pedido.importePedido += producto.precio
+        pedido.save()  
+        return render(request, 'home.html') 
+    else:
+        return HttpResponse('Usuario no autenticado')
+    
+        
+    
     
 
 
