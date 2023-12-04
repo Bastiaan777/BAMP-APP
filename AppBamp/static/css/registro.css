@@ -1,6 +1,6 @@
 /* TITULO -------------------------------------------------------- */
 #formulario {
-  font-family: 'Arial', sans-serif; /* Fuente más moderna */
+  background-color: #205ab4;  /* Fuente más moderna */
   background: #14376d;
   color: white;
   padding: 10px; /* Padding más grande para mejor aspecto */
@@ -28,7 +28,7 @@ button.btn:hover {
 
 form {
   background-color: white;
-  margin: 20px auto; /* Margen uniforme */
+  margin: 10px auto; /* Margen uniforme */
   border-radius: 20px;
   width: 60%; /* Ancho más adaptable */
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra suave */
@@ -103,4 +103,22 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Estilo para el botón de 'Volver al Login' */
+.btn-login {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #205ab4; /* Color de fondo azul */
+    color: white; /* Texto en color blanco */
+    text-align: center;
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    margin-left: 20px;
+}
+
+.btn-login:hover {
+    text-decoration: none; /* Mantiene el enlace sin subrayado al pasar el ratón por encima */
+    background-color: #14376d; /* Cambio de color al pasar el cursor */
 }

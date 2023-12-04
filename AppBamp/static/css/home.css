@@ -20,5 +20,23 @@ h3 {
   margin-right: auto; /* Centra <h3> horizontalmente */
 }
 
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #205ab4; /* Color de fondo azul */
+  color: white; /* Texto en color blanco */
+  text-align: center;
+  border-radius: 5px; /* Bordes redondeados */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  margin-left: 20px;
+  cursor: pointer; /* Cursor de mano al pasar sobre el enlace */
+}
+
+.btn-primary:hover {
+  text-decoration: none; /* Mantiene el enlace sin subrayado al pasar el ratón por encima */
+  background-color: #14376d; /* Cambio de color al pasar el cursor */
+}
+
 
 
