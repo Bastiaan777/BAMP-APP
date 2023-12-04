@@ -5,7 +5,6 @@
     <title>Formulario | Registro</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
     <script>
-        // Cuando el documento esté listo, asignar la función de cierre al botón de cerrar
         window.onload = function() {
             var cerrar = document.getElementsByClassName("close")[0];
             cerrar.onclick = function() {
@@ -14,7 +13,6 @@
             }
         }
 
-        // Función para mostrar el modal de alerta
         function mostrarAlerta(mensaje) {
             var textoAlerta = document.getElementById("textoAlerta");
             textoAlerta.innerHTML = mensaje;
@@ -29,20 +27,29 @@
             var lastName = document.getElementById("last_name").value;
             var password1 = document.getElementById("password1").value;
             var password2 = document.getElementById("password2").value;
+            var fechaNacimiento = document.getElementById("fecha").value;
+            var direccion = document.getElementById("direccion").value;
 
-            // Comprobación de campos obligatorios
-            if (usuario === '' || email === '' || firstName === '' || lastName === '' || password1 === '' || password2 === '') {
-                mostrarAlerta("Por favor, rellene todos los campos obligatorios marcados con un asterisco (*).");
+            if (usuario === '' || email === '' || firstName === '' || lastName === '' || password1 === '' || password2 === '' || fechaNacimiento === '' || direccion === '') {
+                mostrarAlerta("Por favor, rellene todos los campos.");
                 return false;
             }
 
-            // Comprobación de longitud de contraseña
-            if (password1.length < 8 || password2.length < 8) {
+            if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
+                mostrarAlerta("Ingrese un correo electrónico de Gmail válido.");
+                return false;
+            }
+
+            if (password1.length < 8) {
                 mostrarAlerta("La contraseña debe tener al menos 8 caracteres.");
                 return false;
+            } 
+
+            if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password1)) {
+                mostrarAlerta("La contraseña debe incluir números, mayúsculas y minúsculas.");
+                return false;
             }
 
-            // Comprobación de coincidencia de contraseñas
             if (password1 !== password2) {
                 mostrarAlerta("Las contraseñas no coinciden.");
                 return false;
@@ -57,7 +64,6 @@
         <h1>REGISTRO</h1>
     </div>
 
-    <!-- Modal para alertas personalizadas -->
     <div id="modalAlerta" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -69,22 +75,22 @@
         {% csrf_token %}
 
         <div id="tabla-formulario">
-            <label for="usuario">Usuario (*)</label>
+            <label for="usuario">Usuario</label>
             <input placeholder="Ingrese su nombre de usuario..." name="username" type="text" id="usuario" />
 
-            <label for="first_name">Nombre (*)</label>
+            <label for="first_name">Nombre</label>
             <input placeholder="Ingrese su nombre..." name="first_name" type="text" id="first_name" />
 
-            <label for="last_name">Apellido (*)</label>
+            <label for="last_name">Apellido</label>
             <input placeholder="Ingrese su apellido..." name="last_name" type="text" id="last_name" />
 
-            <label for="email">Correo electronico (*)</label>
+            <label for="email">Correo electronico</label>
             <input placeholder="Escriba su e-mail" name="email" type="text" id="email" />
 
-            <label for="password1">Contraseña (*)</label>
+            <label for="password1">Contraseña</label>
             <input placeholder="Escriba contraseña" name="password1" type="password" id="password1" />
 
-            <label for="password2">Repite la Contraseña (*)</label>
+            <label for="password2">Repite la Contraseña</label>
             <input placeholder="Escriba contraseña" name="password2" type="password" id="password2" />
 
             <label for="fecha">Fecha nacimiento</label>
