@@ -1,91 +1,100 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Formulario | Registro</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/registro.css' %}"
-    />
-  </head>
-  <body>
-    
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+    <script>
+        // Cuando el documento esté listo, asignar la función de cierre al botón de cerrar
+        window.onload = function() {
+            var cerrar = document.getElementsByClassName("close")[0];
+            cerrar.onclick = function() {
+                var modal = document.getElementById("modalAlerta");
+                modal.style.display = "none";
+            }
+        }
+
+        // Función para mostrar el modal de alerta
+        function mostrarAlerta(mensaje) {
+            var textoAlerta = document.getElementById("textoAlerta");
+            textoAlerta.innerHTML = mensaje;
+            var modal = document.getElementById("modalAlerta");
+            modal.style.display = "block";
+        }
+
+        function validarFormulario() {
+            var usuario = document.getElementById("usuario").value;
+            var email = document.getElementById("email").value;
+            var firstName = document.getElementById("first_name").value;
+            var lastName = document.getElementById("last_name").value;
+            var password1 = document.getElementById("password1").value;
+            var password2 = document.getElementById("password2").value;
+
+            // Comprobación de campos obligatorios
+            if (usuario === '' || email === '' || firstName === '' || lastName === '' || password1 === '' || password2 === '') {
+                mostrarAlerta("Por favor, rellene todos los campos obligatorios marcados con un asterisco (*).");
+                return false;
+            }
+
+            // Comprobación de longitud de contraseña
+            if (password1.length < 8 || password2.length < 8) {
+                mostrarAlerta("La contraseña debe tener al menos 8 caracteres.");
+                return false;
+            }
+
+            // Comprobación de coincidencia de contraseñas
+            if (password1 !== password2) {
+                mostrarAlerta("Las contraseñas no coinciden.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
     <div id="formulario">
-      <h1>FORMULARIO</h1>
+        <h1>REGISTRO</h1>
     </div>
-    <form action="{% url 'registro' %}" method="post">
-    {% csrf_token %}
-       <div id="tabla-formulario">
-        <label for="nombre">Usuario</label>
-        <input
-          placeholder="Ingrese su nombre..."
-          name="username"
-          type="text"
-          id="tabla"
-        />
 
-      <div id="tabla-formulario">
-        <label for="nombre">Nombre</label>
-        <input
-          placeholder="Ingrese su nombre..."
-          name="first_name"
-          type="text"
-          id="tabla"
-        />
+    <!-- Modal para alertas personalizadas -->
+    <div id="modalAlerta" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="textoAlerta"></p>
+        </div>
+    </div>
 
-        <label for="apellido">Apellido</label>
-        <input
-          placeholder="Ingrese su apellido..."
-          name="last_name"
-          type="text"
-          id="tabla"
-        />
+    <form action="{% url 'registro' %}" method="post" onsubmit="return validarFormulario()">
+        {% csrf_token %}
 
-        <label for="correo">Correo electronico (*) </label>
-        <input
-          placeholder="Escriba su e-mail"
-          name="email"
-          type="text"
-          id="tabla"
-        />
+        <div id="tabla-formulario">
+            <label for="usuario">Usuario (*)</label>
+            <input placeholder="Ingrese su nombre de usuario..." name="username" type="text" id="usuario" />
 
-        <label for="contra">Contraseña</label>
-        <input
-          placeholder="Escriba contraseña"
-          name="password1"
-          type="password"
-          id="tabla"
-        />
-        <label for="contra">Repite la Contraseña</label>
-        <input
-          placeholder="Escriba contraseña"
-          name="password2"
-          type="password"
-          id="tabla"
-        />
+            <label for="first_name">Nombre (*)</label>
+            <input placeholder="Ingrese su nombre..." name="first_name" type="text" id="first_name" />
 
-        <label for="fecha">Fecha nacimiento (*) </label>
-        <input
-          placeholder="DD/MM/AA"
-          name="fechaNacimiento"
-          type="date"
-          id="tabla"
-        />
+            <label for="last_name">Apellido (*)</label>
+            <input placeholder="Ingrese su apellido..." name="last_name" type="text" id="last_name" />
 
-        <label for="direccion">Direccion</label>
-        <input
-          placeholder="Escriba su direccion"
-          name="direccion"
-          type="text"
-          id="tabla"
-        />
-        
-      </div>
-      <button type="submit" class="btn">
-        ¡Regístrate!
-      </button>
+            <label for="email">Correo electronico (*)</label>
+            <input placeholder="Escriba su e-mail" name="email" type="text" id="email" />
+
+            <label for="password1">Contraseña (*)</label>
+            <input placeholder="Escriba contraseña" name="password1" type="password" id="password1" />
+
+            <label for="password2">Repite la Contraseña (*)</label>
+            <input placeholder="Escriba contraseña" name="password2" type="password" id="password2" />
+
+            <label for="fecha">Fecha nacimiento</label>
+            <input placeholder="DD/MM/AA" name="fechaNacimiento" type="date" id="fecha" />
+
+            <label for="direccion">Direccion</label>
+            <input placeholder="Escriba su direccion" name="direccion" type="text" id="direccion" />
+        </div>
+
+        <button type="submit" class="btn">ACEPTAR</button>
     </form>
-  </body>
+</body>
 </html>

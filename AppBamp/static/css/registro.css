@@ -1,72 +1,106 @@
 /* TITULO -------------------------------------------------------- */
-#formulario{
-    font-family: sans-serif;
-    background: #14376d;
-    color: white;
-    padding: 5px;
-    text-align: center;
-    border-top-left-radius: 19px;
-    border-top-right-radius: 19px;
-    border-bottom: 5px solid #205ab4;
-    margin-bottom:5px; 
-  }
-  /* --------------------------------------------------------------- */
-  /* --------------------------------------------------------------- */
-  /* FORMULARIO: fondo blanco y casillas --------------------------- */
-  button.btn{
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente si es necesario */
+#formulario {
+  font-family: 'Arial', sans-serif; /* Fuente más moderna */
+  background: #14376d;
+  color: white;
+  padding: 10px; /* Padding más grande para mejor aspecto */
+  text-align: center;
+  border-radius: 20px; /* Bordes redondeados uniformes */
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+  margin-bottom: 20px; 
 }
 
-  form{
-    background-color: white;
-    margin:10px;
-    margin:0 auto;
-    border-radius:19px;
-    width: 40%;
-    /* SECUENCIA: para centrar formulario */
-    position: absolute;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-    /* TAMAÑO LETRA: nombre, apellido, e-mail, etc ----- */
-      label{
-        margin-left: 8px;
-        font-size: 12px;
-        padding: 5px;
-        display:block;
-        width: 100%;
-        font-family: sans-serif;
-      }
-    /* -------------------------------------------------- */
-    /* EDICION CADA INPUT: diseño ----------------------- */
-      input{
-        margin-bottom:10px; 
-        width: 95%;
-        padding: 2%;
-        margin-left: 10px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        font-style: italic; 
-      }
-      /* Cuando da click dentro de un input --------------- */
-        input:focus{
-          background-color: #F2F2F2;
-        }
-      /* -------------------------------------------------- */
-  /* --------------------------------------------------------------- */
-  /* C U E R P O  -------------------------------------------------- */ 
-  body{
-    background-image: linear-gradient(-90deg,#6ABBF7, #BD7CFA);
-  }
-  /* --------------------------------------------------------------- */
-  /* FUNCION DEL BOTON REGISTRARSE --------- */
+/* FORMULARIO: fondo blanco y casillas --------------------------- */
+button.btn {
+  display: block; /* Cambiar a bloque para centrar en el formulario */
+  margin: 10px auto; /* Centrado automático */
+  padding: 10px 20px; /* Padding más cómodo */
+  background-color: #205ab4; /* Color que combina con el título */
+  color: white; /* Texto blanco para contraste */
+  border: none;
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+  cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+}
 
+button.btn:hover {
+  background-color: #14376d; /* Cambio de color al pasar el cursor */
+}
 
+form {
+  background-color: white;
+  margin: 20px auto; /* Margen uniforme */
+  border-radius: 20px;
+  width: 60%; /* Ancho más adaptable */
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra suave */
+  padding: 20px; /* Padding interno para el formulario */
+}
 
+label {
+  margin-left: 15px; /* Margen izquierdo aumentado */
+  font-size: 14px; /* Tamaño de letra más grande */
+  color: #333; /* Color de letra más suave */
+  font-weight: bold; /* Letra en negrita */
+}
 
-  /* ---------------------------------------- */
+input {
+  margin-bottom: 15px; 
+  width: calc(100% - 30px); /* Ancho ajustado para el padding */
+  padding: 10px; /* Padding más cómodo */
+  margin-left: 15px;
+  border: 1px solid #ccc;
+  font-style: normal; /* Estilo de fuente normal */
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+}
+
+input:focus {
+  background-color: #F2F2F2;
+  outline: none; /* Eliminar el contorno al enfocar */
+}
+
+/* CUERPO -------------------------------------------------- */ 
+body {
+  background-image: linear-gradient(-90deg, #6ABBF7, #BD7CFA);
+  font-family: 'Arial', sans-serif; /* Fuente uniforme para todo el cuerpo */
+  margin: 0; /* Eliminar margen predeterminado */
+  padding: 0; /* Eliminar padding predeterminado */
+}
+
+/* Modal base */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1; /* Se muestra sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Anchura completa */
+    height: 100%; /* Altura completa */
+    overflow: auto; /* Habilitar desplazamiento si es necesario */
+    background-color: rgb(0,0,0); /* Fondo negro */
+    background-color: rgba(0,0,0,0.4); /* Negro con opacidad */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde la parte superior y centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Ajusta esto según el tamaño deseado */
+    box-sizing: border-box; /* Para que padding no afecte el ancho */
+    border-radius: 15px; /* Esquinas redondeadas */
+}
+
+/* El botón de cerrar (x) */
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
