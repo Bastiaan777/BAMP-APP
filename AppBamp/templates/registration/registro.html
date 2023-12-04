@@ -4,60 +4,8 @@
 <head>
     <title>Formulario | Registro</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
-    <script>
-        window.onload = function() {
-            var cerrar = document.getElementsByClassName("close")[0];
-            cerrar.onclick = function() {
-                var modal = document.getElementById("modalAlerta");
-                modal.style.display = "none";
-            }
-        }
+    <script src="{% static 'js/registro.js' %}"></script>
 
-        function mostrarAlerta(mensaje) {
-            var textoAlerta = document.getElementById("textoAlerta");
-            textoAlerta.innerHTML = mensaje;
-            var modal = document.getElementById("modalAlerta");
-            modal.style.display = "block";
-        }
-
-        function validarFormulario() {
-            var usuario = document.getElementById("usuario").value;
-            var email = document.getElementById("email").value;
-            var firstName = document.getElementById("first_name").value;
-            var lastName = document.getElementById("last_name").value;
-            var password1 = document.getElementById("password1").value;
-            var password2 = document.getElementById("password2").value;
-            var fechaNacimiento = document.getElementById("fecha").value;
-            var direccion = document.getElementById("direccion").value;
-
-            if (usuario === '' || email === '' || firstName === '' || lastName === '' || password1 === '' || password2 === '' || fechaNacimiento === '' || direccion === '') {
-                mostrarAlerta("Por favor, rellene todos los campos.");
-                return false;
-            }
-
-            if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
-                mostrarAlerta("Ingrese un correo electrónico de Gmail válido.");
-                return false;
-            }
-
-            if (password1.length < 8) {
-                mostrarAlerta("La contraseña debe tener al menos 8 caracteres.");
-                return false;
-            } 
-
-            if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password1)) {
-                mostrarAlerta("La contraseña debe incluir números, mayúsculas y minúsculas.");
-                return false;
-            }
-
-            if (password1 !== password2) {
-                mostrarAlerta("Las contraseñas no coinciden.");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
 </head>
 <body>
     <div id="formulario">
@@ -66,10 +14,20 @@
 
     <div id="modalAlerta" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span id="closeModalAlerta" class="close">&times;</span>
             <p id="textoAlerta"></p>
         </div>
     </div>
+    
+    {% if user_form.errors or perfil_usuario_form.errors %}
+    <div id="modalErrores" class="modal modalErrores">
+        <div class="modal-content">
+            <span id="closeModalErrores" class="close">&times;</span>
+            {{user_form.errors}}
+            {{perfil_usuario_form.errors}}
+        </div>
+    </div>
+    {% endif %}
 
     <form action="{% url 'registro' %}" method="post" onsubmit="return validarFormulario()">
         {% csrf_token %}

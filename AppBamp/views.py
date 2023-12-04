@@ -74,8 +74,11 @@ def registro(request):
         else:
             print(user_form.errors)
             print(perfil_usuario_form.errors)
+    else:
+        user_form = ExtendedUserCreationForm()
+        perfil_usuario_form = PerfilUsuarioForm()
 
-    return render(request, 'registration/registro.html')
+    return render(request, 'registration/registro.html', {'user_form': user_form, 'perfil_usuario_form': perfil_usuario_form})
 
 
 
@@ -115,33 +118,18 @@ def pedido(request):
         perfil_usuario = PerfilUsuario.objects.get(usuario=usuario) #get es algo unico
         pedido.usuario = perfil_usuario
         pedido.save()
-        for nombre_variable, valor in request.POST.items():
+        for nombre_variable, cantidad in request.POST.items():
             if nombre_variable.startswith('cantidad_'):
                 id_producto = nombre_variable.split('_')[1]
                 producto = Producto.objects.get(pk=id_producto)
-                if int(valor) > 0:
-                    pedido.productos.add(producto)
-                    pedido.importePedido += producto.precio * int(valor)
+                if int(cantidad) > 0:
+                    pedido_producto = PedidoProducto()
+                    pedido_producto.producto = producto
+                    pedido_producto.pedido = pedido
+                    pedido_producto.cantidad = int(cantidad)
+                    pedido_producto.save()
+                    pedido.importePedido += producto.precio * int(cantidad)
         pedido.save()
         return render(request, 'home.html') 
     else:
         return HttpResponse('Usuario no autenticado')
-    
-        
-    
-    
-
-
-
-
-    
-
-    
-
-    
-
-
-# def categoria_restaurante(request, ciudad):
-#     categorias = Ciudad.objects.get(id=ciudad).categorias_restaurante.all()
-#     context = {'categorias': categorias}
-#     return render(request, 'categorias_restaurante.html', context)

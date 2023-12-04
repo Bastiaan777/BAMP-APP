@@ -122,3 +122,12 @@ body {
     text-decoration: none; /* Mantiene el enlace sin subrayado al pasar el ratón por encima */
     background-color: #14376d; /* Cambio de color al pasar el cursor */
 }
+
+.modalErrores {
+  display: block;
+}
+
+.errorlist li{
+  list-style: none;
+
+}

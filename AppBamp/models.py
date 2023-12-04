@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class PerfilUsuario(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE) #usuario es un objeto
-    fechaNacimiento = models.DateField(blank=True) #puede estar vacio
+    fechaNacimiento = models.DateField(blank=True, null=True) #puede estar vacio
     direccion = models.TextField(blank=True, null=True)
     def __str__(self):
         return self.usuario.username
@@ -48,7 +48,7 @@ class Pedido(models.Model):
     usuario = models.ForeignKey(PerfilUsuario, on_delete=models.CASCADE)
     productos = models.ManyToManyField(Producto, through="PedidoProducto")
     def __str__(self):
-        return f"{self.id} - {self.usuario.usuario.username} - {self.importePedido}"
+        return f"id: {self.id}"
 
 
 class PedidoProducto(models.Model):
@@ -58,3 +58,6 @@ class PedidoProducto(models.Model):
 
     class Meta:
         unique_together = ("pedido", "producto")
+    
+    def __str__(self):
+        return f"pedido: {self.pedido.id} - producto: {self.producto.id} - cantidad: {self.cantidad}"
