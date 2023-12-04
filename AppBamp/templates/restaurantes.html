@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% load static %} {% block extra_head %}
 <title>categorias de Restaurante</title>
-<link rel="stylesheet" type="text/css" href="{% static 'css/restaurantes.css' %}" />
-
+<link
   rel="stylesheet"
   type="text/css"
-  
-<script src="{% static 'js/restaurantes.js' %}"></script>
+  href="{% static 'css/restaurantes.css' %}"
+/>
 
+<script src="{% static 'js/restaurantes.js' %}"></script>
 
 {% endblock %} {% block content %}
 
@@ -17,19 +17,19 @@
   <input type="hidden" name="id-restaurante" id="input-restaurante" />
 </form>
 
-<div class = "restaurante">
+<div class="restaurante">
   {% for restaurante in restaurantes %}
-    <div onclick="enviarFormulario({{restaurante.id}})">
-      <li>{{restaurante.nombreRestaurante}}</li>
-      <div class="contenido">
-        <img src="{{ categoria.imagen.url }}" alt="Imagen de la Categoria." />
-        <div class="descripcion">
-          <p>{{restaurante.nombreRestaurante}}</p>
-          <p>{{restaurante.nombreRestaurante}}</p>
-          <p>{{restaurante.nombreRestaurante}}</p>
-        </div>
+  <div onclick="enviarFormulario({{restaurante.id}})">
+    <li>{{restaurante.nombreRestaurante}}</li>
+    <div class="contenido">
+      <img src="{{ categoria.imagen.url }}" alt="Imagen de la Categoria." />
+      <div class="descripcion">
+        <p>{{restaurante.nombreRestaurante}}</p>
+        <p>{{restaurante.nombreRestaurante}}</p>
+        <p>{{restaurante.nombreRestaurante}}</p>
       </div>
     </div>
+  </div>
   {% endfor %}
 </div>
 {% endblock %}
