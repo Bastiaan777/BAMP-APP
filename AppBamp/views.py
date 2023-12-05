@@ -34,6 +34,9 @@ def home(request):
     else:
         return render(request, 'registration/login.html')
         #alert
+
+def politica(request):
+    return render(request, 'politicaprivacidad.html')
    
 
 @login_required

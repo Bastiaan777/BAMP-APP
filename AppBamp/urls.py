@@ -20,6 +20,7 @@ urlpatterns = [
     path('restaurantes', views.restaurantes, name="restaurantes"),
     path('restaurantes/carta', views.carta, name="carta"),
     path('pedido', views.pedido, name="pedido"),
+    path('politica', views.politica, name = "politica"),
 
 
     #path('accounts/', include('django.contrib.auth.urls')),

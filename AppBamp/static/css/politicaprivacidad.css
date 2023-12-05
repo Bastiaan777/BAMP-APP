@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: black;
+    background-color: lightgray;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+  
+  ul {
+    list-style-type: disc;
+  }
+  
+  a {
+    color: blue;
+  }
