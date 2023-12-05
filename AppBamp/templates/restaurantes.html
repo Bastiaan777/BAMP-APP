@@ -1,13 +1,11 @@
 {% extends 'base.html' %} {% load static %} {% block extra_head %}
-<title>categorias de Restaurante</title>
+<title>Categorías de Restaurante</title>
 <link
   rel="stylesheet"
   type="text/css"
   href="{% static 'css/restaurantes.css' %}"
 />
-
 <script src="{% static 'js/restaurantes.js' %}"></script>
-
 {% endblock %} {% block content %}
 
 <h1>RESTAURANTES</h1>
@@ -17,19 +15,24 @@
   <input type="hidden" name="id-restaurante" id="input-restaurante" />
 </form>
 
-<div class="restaurante">
+<div class="contenedor-restaurantes">
   {% for restaurante in restaurantes %}
-  <div onclick="enviarFormulario({{restaurante.id}})">
-    <li>{{restaurante.nombreRestaurante}}</li>
-    <div class="contenido">
-      <img src="{{ categoria.imagen.url }}" alt="Imagen de la Categoria." />
-      <div class="descripcion">
-        <p>{{restaurante.nombreRestaurante}}</p>
-        <p>{{restaurante.nombreRestaurante}}</p>
-        <p>{{restaurante.nombreRestaurante}}</p>
-      </div>
+  <div
+    class="tarjeta-restaurante"
+    onclick="enviarFormulario({{ restaurante.id }})"
+  >
+    <img
+      class="imagen-restaurante"
+      src="{{ restaurante.imagen.url }}"
+      alt="Imagen de {{ restaurante.nombreRestaurante }}"
+    />
+    <div class="info-restaurante">
+      <h2>{{ restaurante.nombreRestaurante }}</h2>
+      <p>Una breve descripción del restaurante.</p>
+      <a href="#" class="btn btn-ver-menu">Ver Menú</a>
     </div>
   </div>
   {% endfor %}
 </div>
+
 {% endblock %}
