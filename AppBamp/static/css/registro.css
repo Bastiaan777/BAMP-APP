@@ -131,3 +131,24 @@ body {
   list-style: none;
 
 }
+
+.password-container {
+  position: relative;
+  margin-bottom: 15px; /* Asegura espacio entre los campos de contraseña */
+}
+
+.password-field {
+  padding-right: 30px; /* Espacio para el icono del ojo */
+  width: 93%; /* Se ajusta al contenedor con espacio para el icono */
+  display: block; /* Hace que el input ocupe su propia línea */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 1%; /* Ajustado para alinear con el padding del campo */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1em; /* Usa ems para escalabilidad */
+  z-index: 5;
+}

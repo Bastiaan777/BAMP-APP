@@ -1,66 +1,141 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Formulario | Registro</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/registro.css' %}"
+    />
     <script src="{% static 'js/registro.js' %}"></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <div id="formulario">
-        <h1>REGISTRO</h1>
+      <h1>REGISTRO</h1>
     </div>
 
     <div id="modalAlerta" class="modal">
-        <div class="modal-content">
-            <span id="closeModalAlerta" class="close">&times;</span>
-            <p id="textoAlerta"></p>
-        </div>
+      <div class="modal-content">
+        <span id="closeModalAlerta" class="close">&times;</span>
+        <p id="textoAlerta"></p>
+      </div>
     </div>
-    
+
     {% if user_form.errors or perfil_usuario_form.errors %}
     <div id="modalErrores" class="modal modalErrores">
-        <div class="modal-content">
-            <span id="closeModalErrores" class="close">&times;</span>
-            {{user_form.errors}}
-            {{perfil_usuario_form.errors}}
-        </div>
+      <div class="modal-content">
+        <span id="closeModalErrores" class="close">&times;</span>
+        {{user_form.errors}} {{perfil_usuario_form.errors}}
+      </div>
     </div>
     {% endif %}
 
-    <form action="{% url 'registro' %}" method="post" onsubmit="return validarFormulario()">
-        {% csrf_token %}
+    <form
+      action="{% url 'registro' %}"
+      method="post"
+      onsubmit="return validarFormulario()"
+    >
+      {% csrf_token %}
 
-        <div id="tabla-formulario">
-            <label for="usuario">Usuario</label>
-            <input placeholder="Ingrese su nombre de usuario..." name="username" type="text" id="usuario" />
+      <div id="tabla-formulario">
+        <label for="usuario">Usuario</label>
+        <input
+          placeholder="Ingrese su nombre de usuario..."
+          name="username"
+          type="text"
+          id="usuario"
+        />
 
-            <label for="first_name">Nombre</label>
-            <input placeholder="Ingrese su nombre..." name="first_name" type="text" id="first_name" />
+        <label for="first_name">Nombre</label>
+        <input
+          placeholder="Ingrese su nombre..."
+          name="first_name"
+          type="text"
+          id="first_name"
+        />
 
-            <label for="last_name">Apellido</label>
-            <input placeholder="Ingrese su apellido..." name="last_name" type="text" id="last_name" />
+        <label for="last_name">Apellido</label>
+        <input
+          placeholder="Ingrese su apellido..."
+          name="last_name"
+          type="text"
+          id="last_name"
+        />
 
-            <label for="email">Correo electronico</label>
-            <input placeholder="Escriba su e-mail" name="email" type="text" id="email" />
+        <label for="email">Correo electronico</label>
+        <input
+          placeholder="Escriba su e-mail"
+          name="email"
+          type="text"
+          id="email"
+        />
 
-            <label for="password1">Contraseña</label>
-            <input placeholder="Escriba contraseña" name="password1" type="password" id="password1" />
-
-            <label for="password2">Repite la Contraseña</label>
-            <input placeholder="Escriba contraseña" name="password2" type="password" id="password2" />
-
-            <label for="fecha">Fecha nacimiento</label>
-            <input placeholder="DD/MM/AA" name="fechaNacimiento" type="date" id="fecha" />
-
-            <label for="direccion">Direccion</label>
-            <input placeholder="Escriba su direccion" name="direccion" type="text" id="direccion" />
+        <div class="form-group">
+          <label for="password1">Contraseña</label>
+          <div class="password-container">
+            <input
+              placeholder="Escriba contraseña"
+              name="password1"
+              type="password"
+              id="password1"
+              class="password-field"
+            />
+            <span
+              onmousedown="showPassword('password1')"
+              onmouseup="hidePassword('password1')"
+              onmouseleave="hidePassword('password1')"
+              ontouchstart="showPassword('password1')"
+              ontouchend="hidePassword('password1')"
+              class="eye-icon"
+              >&#128065;</span
+            >
+          </div>
         </div>
 
-        <button type="submit" class="btn">ACEPTAR</button>
+        <div class="form-group">
+          <label for="password2">Repite la Contraseña</label>
+          <div class="password-container">
+            <input
+              placeholder="Escriba contraseña"
+              name="password2"
+              type="password"
+              id="password2"
+              class="password-field"
+            />
+            <span
+              onmousedown="showPassword('password2')"
+              onmouseup="hidePassword('password2')"
+              onmouseleave="hidePassword('password2')"
+              ontouchstart="showPassword('password2')"
+              ontouchend="hidePassword('password2')"
+              class="eye-icon"
+              >&#128065;</span
+            >
+          </div>
+        </div>
+
+        <label for="fecha">Fecha nacimiento</label>
+        <input
+          placeholder="DD/MM/AA"
+          name="fechaNacimiento"
+          type="date"
+          id="fecha"
+        />
+
+        <label for="direccion">Direccion</label>
+        <input
+          placeholder="Escriba su direccion"
+          name="direccion"
+          type="text"
+          id="direccion"
+          S
+        />
+      </div>
+
+      <button type="submit" class="btn">ACEPTAR</button>
     </form>
-    
+
     <a href="{% url 'login' %}" class="btn-login">Ir al Login</a>
-</body>
+  </body>
 </html>

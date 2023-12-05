@@ -3,7 +3,6 @@ window.onload = function() {
     cerrarAlerta.onclick = function() {
         var modal = document.getElementById("modalAlerta");
         modal.style.display = "none";
-        
     }
 
     var cerrarErrores = document.getElementById("closeModalErrores");
@@ -56,4 +55,14 @@ function validarFormulario() {
     }
 
     return true;
+}
+
+function showPassword(passwordFieldId) {
+    var passwordField = document.getElementById(passwordFieldId);
+    passwordField.type = 'text';
+}
+
+function hidePassword(passwordFieldId) {
+    var passwordField = document.getElementById(passwordFieldId);
+    passwordField.type = 'password';
 }
