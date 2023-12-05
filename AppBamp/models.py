@@ -29,10 +29,12 @@ class CategoriaRestaurante(models.Model):
 class Restaurante(models.Model):
     nombreRestaurante = models.CharField(max_length = 50)
     categoriaRestaurante = models.ForeignKey(CategoriaRestaurante, on_delete = models.CASCADE)
+    descripcion = models.CharField(max_length = 255, default="Sin descripción")
     hAperturaRestaurante = models.TimeField(null = True, blank = True)
     hCierreRestaurante = models.TimeField(null = True, blank = True)
     direccion = models.CharField(max_length = 255, default="Sin dirección establecida")
     telefono = models.CharField(max_length = 255, default="Sin teléfono")
+    imagen = models.ImageField(upload_to="restaurantes/imagenes/", default="sin_imagen.png")
 
     def __str__(self):
         return self.nombreRestaurante

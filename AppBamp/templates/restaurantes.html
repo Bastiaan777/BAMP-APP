@@ -21,18 +21,14 @@
     class="tarjeta-restaurante"
     onclick="enviarFormulario({{ restaurante.id }})"
   >
-    <img
-      class="imagen-restaurante"
-      src="{{ restaurante.imagen.url }}"
-      alt="Imagen de {{ restaurante.nombreRestaurante }}"
-    />
+
     <div class="info-restaurante">
-      <h2>{{ restaurante.nombreRestaurante }}</h2>
-      <p>Una breve descripción del restaurante.</p>
-      <p>{{restaurante.telefono}}</p>
-      <p>{{restaurante.direccion}}</p>
-      <p>{{restaurante.hAperturaRestaurante}}</p>
-      <p>{{restaurante.hCierreRestaurante}}</p>
+      <img src="{{ restaurante.imagen.url }}" alt="Imagen del restaurante." />
+      <h2>{{ restaurante.nombreRestaurante }}</h2><br>
+      <p>{{restaurante.descripcion}}</p><br>
+      <p>Nº teléfono: {{restaurante.telefono}}</p><br>
+      <p>Dirección: {{restaurante.direccion}}</p><br>
+      <p>Horario: {{restaurante.hAperturaRestaurante}} - {{restaurante.hCierreRestaurante}}</p>
       <a href="#" class="btn btn-ver-menu">Ver Menú</a>
     </div>
   </div>
