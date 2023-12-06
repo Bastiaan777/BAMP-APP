@@ -42,7 +42,7 @@ class Restaurante(models.Model):
 
 class Producto(models.Model):
     descripcion = models.TextField(max_length=600)
-    precio = models.IntegerField()
+    precio = models.DecimalField(max_digits=6, decimal_places=2)
     nombreProducto = models.CharField(max_length=50)
     restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
     def __str__(self):

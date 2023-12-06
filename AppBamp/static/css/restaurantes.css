@@ -6,6 +6,7 @@ body {
   margin: 0 auto;
 }
 
+
 .contenedor-restaurantes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -38,7 +39,7 @@ body {
   padding: 15px;
 }
 
-.info-restaurante h2 {
+.info-restaurante h4 {
   margin-top: 0;
   color: #333;
 }
@@ -60,4 +61,11 @@ body {
 
 .btn-ver-menu:hover {
   background-color: #003d82;
+}
+h3{
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding-bottom: 15px;
 }

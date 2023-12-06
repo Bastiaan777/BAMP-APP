@@ -8,7 +8,7 @@
 <script src="{% static 'js/restaurantes.js' %}"></script>
 {% endblock %} {% block content %}
 
-<h1>RESTAURANTES</h1>
+<h3>RESTAURANTES</h3>
 
 <form id="formulario-oculto" method="post" action="{% url 'carta' %}">
   {% csrf_token %}
@@ -21,14 +21,20 @@
     class="tarjeta-restaurante"
     onclick="enviarFormulario({{ restaurante.id }})"
   >
-
     <div class="info-restaurante">
       <img src="{{ restaurante.imagen.url }}" alt="Imagen del restaurante." />
-      <h2>{{ restaurante.nombreRestaurante }}</h2><br>
-      <p>{{restaurante.descripcion}}</p><br>
-      <p>Nº teléfono: {{restaurante.telefono}}</p><br>
-      <p>Dirección: {{restaurante.direccion}}</p><br>
-      <p>Horario: {{restaurante.hAperturaRestaurante}} - {{restaurante.hCierreRestaurante}}</p>
+      <h4>{{ restaurante.nombreRestaurante }}</h4>
+      <br />
+      <p>{{restaurante.descripcion}}</p>
+      <br />
+      <p>Nº teléfono: {{restaurante.telefono}}</p>
+      <br />
+      <p>Dirección: {{restaurante.direccion}}</p>
+      <br />
+      <p>
+        Horario: {{restaurante.hAperturaRestaurante}} -
+        {{restaurante.hCierreRestaurante}}
+      </p>
       <a href="#" class="btn btn-ver-menu">Ver Menú</a>
     </div>
   </div>
