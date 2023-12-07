@@ -21,13 +21,13 @@ class Ciudad(models.Model):
 class CategoriaRestaurante(models.Model):
     nombreCategoriaRestaurante = models.CharField(max_length = 50)
     imagen= models.ImageField(upload_to='imagenes_categoria_restaurante', height_field=None, width_field=None, max_length=100)
-    ciudades = models.ManyToManyField(Ciudad)
 
     def __str__(self):
         return self.nombreCategoriaRestaurante
 
 class Restaurante(models.Model):
     nombreRestaurante = models.CharField(max_length = 50)
+    ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
     categoriaRestaurante = models.ForeignKey(CategoriaRestaurante, on_delete = models.CASCADE)
     descripcion = models.CharField(max_length = 255, default="Sin descripción")
     hAperturaRestaurante = models.TimeField(null = True, blank = True)

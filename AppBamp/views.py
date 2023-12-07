@@ -55,8 +55,13 @@ def ciudades(request):
     else:
         return render(request, 'registration/login.html')
         #alert
+
+
 def perfil(request):
-    return render(request, 'perfil.html')
+    print(request.user)
+    user = User.objects.get(username=request.user)
+    perfil = PerfilUsuario.objects.get(usuario=user)
+    return render(request, 'perfil.html', { "perfil": perfil })
 
 
 def registro(request):
@@ -91,7 +96,7 @@ def categoria_restaurante(request):
     # Retrieve the data from the form submission
     id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
     ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
-    categorias = CategoriaRestaurante.objects.filter(ciudades=ciudad) #ya tenemos las categorias de la ciudad seleccionada
+    categorias = CategoriaRestaurante.objects.filter(restaurante__ciudad=ciudad).distinct()
     contexto = {'categorias': categorias} 
     return render(request, 'categorias_restaurante.html', contexto)
 
@@ -125,7 +130,8 @@ def pedido(request):
             if nombre_variable.startswith('cantidad_'):
                 id_producto = nombre_variable.split('_')[1]
                 producto = Producto.objects.get(pk=id_producto)
-                if int(cantidad) > 0:
+                
+                if cantidad and int(cantidad) > 0:
                     pedido_producto = PedidoProducto()
                     pedido_producto.producto = producto
                     pedido_producto.pedido = pedido
