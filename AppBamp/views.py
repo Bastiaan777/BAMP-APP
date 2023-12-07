@@ -133,10 +133,13 @@ def pedido(request):
                     pedido_producto.save()
                     pedido.importePedido += producto.precio * int(cantidad)
         pedido.save()
-        return render(request, 'home.html') 
+        return render(request, 'informePedido.html') 
     else:
         return HttpResponse('Usuario no autenticado')
 
 def informacion_pedido(request, pedido_id):
     pedido = Pedido.objects.get(pk=pedido_id)
     return render(request, 'pedido/informacionPedido.html', {'pedido': pedido})
+
+def informePedido(request):
+    return render(request, 'informePedido.html')

@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %} {% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/pedido.css' %}" />
+{% endblock %} {% block content %}
+
+<h3>RESUMEN DE PEDIDO</h3>
+
+<form id="formulario-oculto" method="post" action="{% url 'carta' %}">
+  {% csrf_token %}
+  <input type="hidden" name="id-restaurante" id="input-restaurante" />
+</form>
+
+<div class="contenedor-restaurantes">
+  {% for PedidoProducto in PedidoProducto %}
+  <div
+    class="tarjeta-restaurante"
+    onclick="enviarFormulario({{ pedidoProducto.id }})"
+  >
+    <div class="info-restaurante">
+    
+      <h4>{{ PedidoProducto.producto.nombre}}</h4>
+      <br />
+      
+  
+      <a href="#" class="btn btn-ver-menu">Ver Menú</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

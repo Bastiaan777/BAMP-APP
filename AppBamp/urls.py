@@ -22,8 +22,8 @@ urlpatterns = [
     path('pedido', views.pedido, name="pedido"),
     path('informacion-pedido/<int:pedido_id>', views.informacion_pedido, name='informacion_pedido'),
     path('politica', views.politica, name = "politica"),
-
-
+    path('informacionPedido', views.informacion_pedido, name='informacionPedido'),
+    path('informePedido', views.informePedido, name='informePedido'),
     #path('accounts/', include('django.contrib.auth.urls')),
 ]
     # path('categorias/<int:ciudad>', views.categoria_restaurante, name='categorias'),
