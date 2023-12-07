@@ -136,3 +136,7 @@ def pedido(request):
         return render(request, 'home.html') 
     else:
         return HttpResponse('Usuario no autenticado')
+
+def informacion_pedido(request, pedido_id):
+    pedido = Pedido.objects.get(pk=pedido_id)
+    return render(request, 'pedido/informacionPedido.html', {'pedido': pedido})

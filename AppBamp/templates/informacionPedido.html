@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load static %} {% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/pedido.css' %}" />
+{% endblock %} {% block content %}
+<h1>Información del pedido</h1>
+
+<table class="pedido-tabla">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Descripción</th>
+      <th>Cantidad</th>
+      <th>Precio</th> 
+    </tr>
+  </thead>
+  <tbody>
+    {% for productoPedido in pedido.productos.all() %}
+    <tr>
+      <td>{{ productoPedido.producto.nombreProducto }}</td>
+      <td>{{ productoPedido.producto.descripcion }}</td>
+      <td>{{ productoPedido.cantidad }}</td>
+      <td>{{ productoPedido.producto.precio }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p class="pedido-precio">Total: {{ pedido.importePedido }}€</p>
+
+<a href="/" class="boton-volver">Volver</a>
+
+{% endblock %}
