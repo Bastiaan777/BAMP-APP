@@ -1,18 +1,22 @@
-body {
-    font-family: sans-serif;
-    font-size: 16px;
-    color: black;
-    background-color: lightgray;
-  }
+main, footer {
+  color: white; /* Establece el color del texto de todos los elementos dentro de <main> y <footer> en blanco */
+}
 
-  p {
-    margin-top: 10px;
-  }
-  
-  ul {
-    list-style-type: disc;
-  }
-  
-  a {
-    color: blue;
-  }
+main p, footer p {
+  color: white; /* Específicamente establece el color del texto para <h2>, <p> dentro de <main>, y <p> dentro de <footer> en blanco */
+}
+
+li {
+  color: white; /* Establece el color del texto de los elementos de la lista en blanco */
+}
+/* Para los títulos */
+h2 {
+  text-decoration: underline; /* Subraya los títulos */
+  color: white; /* Asegúrate de que los títulos estén en blanco */
+}
+
+/* Para la lista */
+ul {
+  padding-left: 35px; /* Aumenta el relleno izquierdo para mover la lista a la derecha */
+  color: white;
+}

@@ -128,3 +128,12 @@ footer > * { /* Se aplica a todos los elementos directos dentro del footer */
   min-height: 100vh; /* Asegurar que cubra toda la altura de la pantalla */
   padding: 20px; /* Agregar algo de espacio alrededor */
 }
+
+a.link-politica {
+  color: white;        /* Establece el color del texto en blanco */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+a.link-politica:hover {
+  text-decoration: underline; /* Puedes quitar esta línea si no deseas ningún efecto al pasar el mouse */
+}

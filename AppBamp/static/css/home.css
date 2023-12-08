@@ -1,6 +1,6 @@
 p {
   font-size: 25px;
-  margin-bottom: 20px; /* Aumentar si quieres más espacio después de <p> */
+  margin-bottom: 20px;
   text-align: center;
   color: white;
   margin-top: 30px;
@@ -8,35 +8,43 @@ p {
 
 .pnghome {
   text-align: center;
+  padding: 10px 20px;
 }
 
 h3 {
   font-size: 30px;
-  margin-top: 20px; /* Espacio antes de <h3> */
-  margin-bottom: 10px; /* Espacio después de <h3> */
+  margin-top: 20px;
+  margin-bottom: 10px;
   color: white;
-  text-align: center; /* Centra el texto dentro de <h3> */
-  margin-left: auto; /* Centra <h3> horizontalmente */
-  margin-right: auto; /* Centra <h3> horizontalmente */
+  text-align: center;
+}
+
+.boton-centrado {
+  text-align: center;
+  margin-top: 20px; /* Ajusta la separación entre la imagen y el botón */
 }
 
 .btn-primary {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 10px 0;
-  background-color: #205ab4; /* Color de fondo azul */
-  color: white; /* Texto en color blanco */
+  padding: 25px 40px;
+  margin: 10px auto; /* Actualizado para centrar el botón */
+  background-color: #154792;
+  color: white;
   text-align: center;
-  border-radius: 5px; /* Bordes redondeados */
-  text-decoration: none; /* Elimina el subrayado del enlace */
-  margin-left: 20px;
-  cursor: pointer; /* Cursor de mano al pasar sobre el enlace */
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px; /* Ajusta el tamaño del texto dentro del botón si es necesario */
 }
 
 .btn-primary:hover {
-  text-decoration: none; /* Mantiene el enlace sin subrayado al pasar el ratón por encima */
-  background-color: #14376d; /* Cambio de color al pasar el cursor */
+  text-decoration: none;
+  background-color: #14376d;
 }
 
-
-
+.responsive-image {
+  width: 270px; /* Cambia esto al ancho deseado */
+  height: auto; /* Mantiene la relación de aspecto de la imagen */
+  display: block; /* Evita que haya espacio extra debajo de la imagen */
+  margin: auto; /* Centra la imagen y añade un margen arriba y abajo */
+}

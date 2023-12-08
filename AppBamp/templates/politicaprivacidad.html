@@ -1,15 +1,14 @@
 {% extends 'base.html' %} {% load static %} {% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/politicaprivacidad.css' %}" />
-<body>
+{% endblock %} 
 
-
-  {% endblock %} {% block content %}
+{% block content %}
   <main>
     <h2>Información general</h2>
     <p>
       En esta política de privacidad se explica cómo recopilamos, usamos y compartimos su información personal cuando visita nuestro sitio web.
     </p><br>
-    <h2>Información que recopilamos</h2>
+    <h2>Información que recopilamos:</h2>
     <p>Podemos recopilar la siguiente información personal de usted:
       <ul>
         <li>Su nombre y apellido</li>
@@ -18,7 +17,7 @@
         <li>Su información de navegación</li>
       </ul>
     </p>
-    <h2>Cómo usamos su información</h2>
+    <h2>Cómo usamos su información:</h2>
     <p>Podemos usar su información personal para los siguientes fines:
       <ul>
         <li>Para proporcionarle nuestros servicios</li>
@@ -26,7 +25,7 @@
         <li>Para mejorar nuestro sitio web</li>
       </ul>
     </p>
-    <h2>Cómo compartimos su información</h2>
+    <h2>Cómo compartimos su información:</h2>
     <p>
       Podemos compartir su información personal con terceros en los siguientes casos:
       <ul>
@@ -34,7 +33,7 @@
         <li>Con autoridades gubernamentales cuando sea requerido por la ley</li>
       </ul>
     </p>
-    <h2>Sus derechos</h2>
+    <h2>Sus derechos:</h2>
     <p>
       Tiene los siguientes derechos en relación con su información personal:
       <ul>
@@ -44,7 +43,7 @@
         <li>El derecho de eliminar su información personal</li>
       </ul>
     </p>
-    <h2>Cómo ponerse en contacto con nosotros</h2>
+    <h2>Cómo ponerse en contacto con nosotros:</h2>
     <p>
       Si tiene alguna pregunta o inquietud sobre nuestra política de privacidad, puede ponerse en contacto con nosotros en:
       <br><br>
@@ -57,6 +56,5 @@
     <p>Última actualización: 2023-12-05</p>
   </footer>
 </body>
-</html>
 {% endblock %}
 
