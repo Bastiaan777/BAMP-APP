@@ -4,20 +4,20 @@
 
 <h3>RESUMEN DE PEDIDO</h3>
 
-<form id="formulario-oculto" method="post" action="{% url 'carta' %}">
+<form id="formulario-oculto" method="post" action="{% url 'restaurantes/carta' %}">
   {% csrf_token %}
   <input type="hidden" name="id-restaurante" id="input-restaurante" />
 </form>
 
 <div class="contenedor-restaurantes">
-  {% for PedidoProducto in PedidoProducto %}
+  {% for pedidoProducto in PedidoProducto %}
   <div
     class="tarjeta-restaurante"
     onclick="enviarFormulario({{ pedidoProducto.id }})"
   >
     <div class="info-restaurante">
     
-      <h4>{{ PedidoProducto.producto.nombre}}</h4>
+      <h4>{{ pedidoProducto.producto.nombre}}</h4>
       <br />
       
   
@@ -26,5 +26,11 @@
   </div>
   {% endfor %}
 </div>
+<script>
+  function enviarFormulario(id) {
+    document.getElementById('input-restaurante').value = id;
+    document.getElementById('formulario-oculto').submit();
+  }
+</script>
 
 {% endblock %}
