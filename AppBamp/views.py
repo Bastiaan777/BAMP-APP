@@ -97,14 +97,16 @@ def categoria_restaurante(request):
     id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
     ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
     categorias = CategoriaRestaurante.objects.filter(restaurante__ciudad=ciudad).distinct()
-    contexto = {'categorias': categorias} 
+    contexto = {'categorias': categorias, 'ciudad' : ciudad} 
     return render(request, 'categorias_restaurante.html', contexto)
 
 
 @require_POST
 def restaurantes(request):
     id_categoria = request.POST.get('id-categoria')
-    restaurantes = Restaurante.objects.filter(categoriaRestaurante_id=id_categoria)
+    id_ciudad = request.POST.get('id-ciudad')
+    ciudad = Ciudad.objects.get(pk=id_ciudad)
+    restaurantes = Restaurante.objects.filter(categoriaRestaurante_id=id_categoria, ciudad=ciudad)
     contexto = {'restaurantes': restaurantes}
     return render(request, 'restaurantes.html', contexto)
 

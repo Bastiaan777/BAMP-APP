@@ -15,6 +15,12 @@
 <form id="formulario-oculto" method="post" action="{% url 'restaurantes' %}">
   {% csrf_token %}
   <input type="hidden" name="id-categoria" id="input-categoria" />
+  <input
+    type="hidden"
+    name="id-ciudad"
+    id="input-ciudad"
+    value="{{ciudad.id}}"
+  />
 </form>
 
 <div class="container">
