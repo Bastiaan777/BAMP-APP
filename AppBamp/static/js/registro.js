@@ -4,13 +4,44 @@ window.onload = function() {
         var modal = document.getElementById("modalAlerta");
         modal.style.display = "none";
     }
-
     var cerrarErrores = document.getElementById("closeModalErrores");
-    cerrarErrores.onclick = function() {
-        var modal = document.getElementById("modalErrores");
-        modal.style.display = "none";
+    if (cerrarErrores) {
+        cerrarErrores.onclick = function() {
+            var modal = document.getElementById("modalErrores");
+            modal.style.display = "none";
+        }    
     }
+
+    // Añadir evento de entrada para el campo de usuario
+    var inputUsuario = document.getElementById("usuario");
+    inputUsuario.addEventListener('change', function() {
+        verificarUsuario(this.value)
+    });
 }
+
+//funcion añadida
+function verificarUsuario(username) {
+    console.log("El username es: " + username);
+    if (username.length === 0) {
+        // No hacer nada si el campo está vacío
+        return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://127.0.0.1:8000/accounts/verificar-usuario?username=' + username, true);
+    xhr.onload = function() {
+        if (this.status == 200) {
+            var jsonResponse = JSON.parse(this.responseText);
+            console.log("jsonResponse is: " + jsonResponse);
+            if (jsonResponse.usuarioExiste) {
+                // Sacar un error por pantalla
+            }
+        }
+    };
+    xhr.send();
+}
+
+
 
 function mostrarAlerta(mensaje) {
     var textoAlerta = document.getElementById("textoAlerta");

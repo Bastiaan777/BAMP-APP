@@ -2,11 +2,10 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseBadRequest
 from django.views.decorators.http import require_POST 
 from django.contrib.auth.models import User
 from .forms import PerfilUsuarioForm, ExtendedUserCreationForm
-
 
 from .models import * 
 
@@ -26,6 +25,22 @@ def login(request):
             return HttpResponse('Usuario no creado')
  
     return render(request, 'registration/login.html')
+
+def verificar_usuario(request):
+    username = request.GET.get('username')
+    if username is not None:
+        # Buscar el user en la BD
+        usuario_existe = User.objects.filter(username=username).exists()
+        data = {
+            "usuarioExiste": usuario_existe
+        }
+        return JsonResponse(data)
+    else:
+        return HttpResponseBadRequest("Paramtero obligatorio 'username' no introducido")
+
+
+
+
     
 
 def home(request):
@@ -44,8 +59,7 @@ def productos(request):
     return render(request, 'productos.html')
 
 def exit(request):
-    logout(request)
-    return render(request, 'registration/login.html')
+    return redirect('login')
 
 def ciudades(request):
     if(request.user.is_authenticated):
