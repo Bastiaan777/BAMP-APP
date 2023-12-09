@@ -50,8 +50,8 @@ def exit(request):
 def ciudades(request):
     if(request.user.is_authenticated):
         ciudades = Ciudad.objects.all()
-        context = {'ciudades': ciudades}
-        return render(request, 'ciudades.html', context)
+        contexto = {'ciudades': ciudades}
+        return render(request, 'ciudades.html', contexto)
     else:
         return render(request, 'registration/login.html')
         #alert
@@ -61,7 +61,8 @@ def perfil(request):
     print(request.user)
     user = User.objects.get(username=request.user)
     perfil = PerfilUsuario.objects.get(usuario=user)
-    return render(request, 'perfil.html', { "perfil": perfil })
+    contexto= { "perfil": perfil }
+    return render(request, 'perfil.html', contexto)
 
 
 def registro(request):
@@ -97,16 +98,14 @@ def categoria_restaurante(request):
     id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
     ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
     categorias = CategoriaRestaurante.objects.filter(restaurante__ciudad=ciudad).distinct()
-    contexto = {'categorias': categorias, 'ciudad' : ciudad} 
+    contexto = {'categorias': categorias} 
     return render(request, 'categorias_restaurante.html', contexto)
 
 
 @require_POST
 def restaurantes(request):
     id_categoria = request.POST.get('id-categoria')
-    id_ciudad = request.POST.get('id-ciudad')
-    ciudad = Ciudad.objects.get(pk=id_ciudad)
-    restaurantes = Restaurante.objects.filter(categoriaRestaurante_id=id_categoria, ciudad=ciudad)
+    restaurantes = Restaurante.objects.filter(categoriaRestaurante_id=id_categoria)
     contexto = {'restaurantes': restaurantes}
     return render(request, 'restaurantes.html', contexto)
 

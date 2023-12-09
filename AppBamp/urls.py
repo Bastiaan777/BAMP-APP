@@ -1,9 +1,6 @@
 from django.urls import path
 from . import views
 
-
-
-
 urlpatterns = [
     path('ciudades', views.ciudades, name='ciudades'),
     path('categoria_restaurante', views.categoria_restaurante, name='categoria_restaurante'),
@@ -24,4 +21,3 @@ urlpatterns = [
     path('informePedido', views.informePedido, name='informePedido'),
     #path('accounts/', include('django.contrib.auth.urls')),
 ]
-    # path('categorias/<int:ciudad>', views.categoria_restaurante, name='categorias'),
