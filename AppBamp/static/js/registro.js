@@ -34,15 +34,13 @@ function verificarUsuario(username) {
             var jsonResponse = JSON.parse(this.responseText);
             console.log("jsonResponse is: " + jsonResponse);
             if (jsonResponse.usuarioExiste) {
-                // Sacar un error por pantalla
+                mostrarAlerta("Ya existe este usuario");
+                
             }
         }
     };
     xhr.send();
 }
-
-
-
 function mostrarAlerta(mensaje) {
     var textoAlerta = document.getElementById("textoAlerta");
     textoAlerta.innerHTML = mensaje;
