@@ -9,23 +9,9 @@
   <input type="hidden" name="id-restaurante" id="input-restaurante" />
 </form>
 
-<div class="contenedor-restaurantes">
-  {% for pedidoProducto in PedidoProducto %}
-  <div
-    class="tarjeta-restaurante"
-    onclick="enviarFormulario({{ pedidoProducto.id }})"
-  >
-    <div class="info-restaurante">
-    
-      <h4>{{ pedidoProducto.producto.nombre}}</h4>
-      <br />
-      
-  
-      <a href="#" class="btn btn-ver-menu">Ver Menú</a>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+<h3><br><br> ¡Tu pedido se ha realizado con éxito! Lo recibirás dentro de entre 30 - 45 minutos.</h3>
+<br><br>
+<h3>Muchas gracias y hasta pronto :D</h3>
 <script>
   function enviarFormulario(id) {
     document.getElementById('input-restaurante').value = id;
