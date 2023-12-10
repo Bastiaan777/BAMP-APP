@@ -4,7 +4,7 @@
 
 <h3>RESUMEN DE PEDIDO</h3>
 
-<form id="formulario-oculto" method="post" action="{% url 'restaurantes/carta' %}">
+<form id="formulario-oculto" method="post" action="{% url 'informePedido' %}">
   {% csrf_token %}
   <input type="hidden" name="id-restaurante" id="input-restaurante" />
 </form>
