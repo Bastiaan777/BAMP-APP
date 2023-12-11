@@ -44,7 +44,7 @@ class Producto(models.Model):
     descripcion = models.TextField(max_length=600)
     precio = models.DecimalField(max_digits=6, decimal_places=2)
     nombreProducto = models.CharField(max_length=50)
-    restaurante = models.ManyToManyField(Restaurante) 
+    restaurante = models.ManyToManyField(Restaurante)
     def __str__(self):
         return self.nombreProducto
     
