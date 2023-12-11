@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 
 
+
 class PerfilUsuario(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE) #usuario es un objeto
     fechaNacimiento = models.DateField(blank=True, null=True) #puede estar vacio
@@ -44,11 +45,8 @@ class Producto(models.Model):
     descripcion = models.TextField(max_length=600)
     precio = models.DecimalField(max_digits=6, decimal_places=2)
     nombreProducto = models.CharField(max_length=50)
-<<<<<<< HEAD
-    restaurante = models.ManyToManyField(Restaurante)
-=======
-    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
->>>>>>> parent of 287c906 (avance bd)
+    restaurantes = models.ManyToManyField(Restaurante) 
+    
     def __str__(self):
         return self.nombreProducto
     

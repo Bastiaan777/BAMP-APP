@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpRe
 from django.views.decorators.http import require_POST 
 from django.contrib.auth.models import User
 from .forms import PerfilUsuarioForm, ExtendedUserCreationForm
+from .models import Producto
 
 from .models import * 
 
@@ -130,9 +131,9 @@ def restaurantes(request):
 @require_POST
 def carta(request):
     id_restaurante = request.POST.get('id-restaurante')
-    lista_productos = Producto.objects.filter(restaurante_id=id_restaurante) #filter -> Esperas mas de un resultado en la query
+    lista_productos = Producto.objects.filter(restaurantes=id_restaurante).order_by('nombreProducto')
     print(lista_productos)
-    contexto = {'carta':lista_productos}
+    contexto = {'carta': lista_productos}
     return render(request, 'carta.html', contexto)
 
 @require_POST
