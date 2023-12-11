@@ -21,6 +21,13 @@
   box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 }
 
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+}
 h3, h4 {
   text-align: center;
   color: #333;
