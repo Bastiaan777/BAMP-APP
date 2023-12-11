@@ -1,62 +1,69 @@
 .productos-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .producto-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-  }
-  
-  .producto-info {
-    flex-grow: 1;
-  }
-  
-  .producto-nombre {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .producto-precio {
-    font-style: italic;
-  }
-  
-  .producto-cantidad {
-    display: flex;
-    align-items: center;
-  }
-  
-  .producto-cantidad label {
-    margin-right: 5px;
-  }
-  
-  input[type="number"] {
-    width: 50px;
-    padding: 5px;
-  }
-  
-  .boton-confirmar {
-    background-color:grey;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .boton-confirmar:hover {
-    background-color: black;
-    color: white;
-  }
-  h4{
-    font-family: 'Arial', sans-serif;
-    font-size: 30px;
-    color: white;
-    text-align: center;
-    padding-bottom: 15px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  color: white; /* Texto en blanco para el contenedor */
+}
+
+.producto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  color: white; /* Texto en blanco para cada item de producto */
+}
+
+.producto-info {
+  flex-grow: 1;
+}
+
+.producto-nombre {
+  font-weight: bold;
+  margin-right: 10px;
+  color: white; /* Texto en blanco para el nombre del producto */
+}
+
+.producto-precio {
+  font-style: italic;
+  color: white; /* Texto en blanco para el precio */
+}
+
+.producto-cantidad {
+  display: flex;
+  align-items: center;
+}
+
+.producto-cantidad label {
+  margin-right: 5px;
+  color: white; /* Texto en blanco para la etiqueta de cantidad */
+}
+
+input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  /* Se mantiene el estilo original para el input de tipo número */
+}
+
+.boton-confirmar {
+  background-color: grey;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  float: right; /* Alinea el botón a la derecha */
+}
+
+
+.boton-confirmar:hover {
+  background-color: black;
+}
+
+h4 {
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  color: white; /* Texto en blanco para el encabezado h4 */
+  text-align: center;
+  padding-bottom: 15px;
+}

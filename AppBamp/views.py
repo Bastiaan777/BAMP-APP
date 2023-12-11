@@ -76,7 +76,13 @@ def perfil(request):
     print(request.user)
     user = User.objects.get(username=request.user)
     perfil = PerfilUsuario.objects.get(usuario=user)
-    return render(request, 'perfil.html', { "perfil": perfil })
+    pedidos = Pedido.objects.filter(usuario=perfil).order_by('-id')
+    contexto = { 
+        "perfil": perfil,
+        "pedidos" : pedidos
+    }
+    return render(request, 'perfil.html', contexto)
+
 
 
 def registro(request):
@@ -158,10 +164,30 @@ def pedido(request):
                     pedido_producto.save()
                     pedido.importePedido += producto.precio * int(cantidad)
         pedido.save()
-        return render(request, 'informePedido.html') 
+        return redirect(f'/informe-pedido?id={pedido.id}')
     else:
         return HttpResponse('Usuario no autenticado')
 
 
-def informePedido(request):
-    return render(request, 'informePedido.html')
+def resumen_pedido(request):
+    id_pedido = request.GET.get('id')
+    pedido = Pedido.objects.get(pk=id_pedido)
+     # Obtener los productos asociados al pedido y sus cantidades
+    productos_pedido = PedidoProducto.objects.filter(pedido=pedido)
+
+    # Crear una lista de productos con su información y cantidad
+    productos = []
+    for producto_pedido in productos_pedido:
+        productos.append({
+            'nombre': producto_pedido.producto.nombreProducto,
+            'descripcion': producto_pedido.producto.descripcion,
+            'precio': producto_pedido.producto.precio * producto_pedido.cantidad,
+            'cantidad': producto_pedido.cantidad
+        })
+
+    # Preparar el contexto para el template
+    contexto = {
+        'pedido': pedido,
+        'productos': productos,
+    }
+    return render(request, 'resumenPedido.html', contexto) 

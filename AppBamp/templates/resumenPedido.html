@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load static %} {% block extra_head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/resumenPedido.css' %}"
+/>
+{% endblock %} {% block content %}
+<h4>Resumen del Pedido</h4>
+<div class="resumen-container">
+  {% for producto in productos %}
+  <div class="resumen-item">
+    <div class="producto-info">
+      <span class="producto-nombre"> Producto: {{ producto.nombre }}</span>
+      <span class="producto-descripcion"
+        >Descripcion: {{ producto.descripcion }}</span
+      >
+      <span class="producto-cantidad">Cantidad: {{ producto.cantidad }}</span>
+      <span class="producto-precio"> Precio: {{ producto.precio }}€</span>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="total">
+    <span class="total-texto">Total:</span>
+    <span class="total-precio">{{ pedido.importePedido }}€</span>
+  </div>
+</div>
+{% endblock %}

@@ -47,6 +47,7 @@ class Producto(models.Model):
     nombreProducto = models.CharField(max_length=50)
     restaurantes = models.ManyToManyField(Restaurante) 
     
+    
     def __str__(self):
         return self.nombreProducto
     

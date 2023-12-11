@@ -1,0 +1,72 @@
+/* Estilos generales */
+.resumen-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resumen-item {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 10px 0;
+}
+
+.producto-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.producto-info > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Encabezado */
+h4 {
+  text-align: center;
+  color: white; /* Cambiado a blanco */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Detalles del producto */
+.producto-nombre {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.producto-descripcion {
+  font-style: italic;
+  color: #555;
+}
+
+/* Cantidad y precio */
+.producto-cantidad,
+.producto-precio {
+  font-weight: bold;
+}
+
+/* Total */
+.total {
+  text-align: right;
+  padding-top: 15px;
+}
+
+.total-texto {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total-precio {
+  font-size: 20px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Añade estilos adicionales si es necesario */

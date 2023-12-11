@@ -4,19 +4,30 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}" />
 
 {% endblock %} {% block content %}
+<div class="main-container">
+  <div class="perfil-container">
+    <h1>Perfil del Usuario</h1>
+    <div class="datos-perfil">
+      <h2>Datos Personales</h2>
+      <p><strong>Nombre de Usuario:</strong> {{ user.username }}</p>
+      <p><strong>Nombre:</strong> {{ user.first_name }}</p>
+      <p><strong>Apellido:</strong> {{ user.last_name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Fecha de Nacimiento:</strong> {{perfil.fechaNacimiento }}</p>
+      <p><strong>Dirección:</strong> {{ perfil.direccion }}</p>
+    </div>
+  </div>
 
-<div class="perfil-container">
-  <h3>Perfil del Usuario</h1>
-  <div class="datos-perfil">
-    <h4>Datos Personales</h2>
-    <p><strong>Nombre de Usuario:</strong> {{ user.username }}</p>
-    <p><strong>Nombre:</strong> {{ user.first_name }}</p>
-    <p><strong>Apellido:</strong> {{ user.last_name }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p>
-      <strong>Fecha de Nacimiento:</strong> {{perfil.fechaNacimiento }}
-    </p>
-    <p><strong>Dirección:</strong> {{ perfil.direccion }}</p>
+  <div class="pedidos-container">
+    <h1>Pedidos del Usuario</h1>
+    {% for pedido in pedidos %}
+    <a href="{% url 'resumen_pedido' %}?id={{pedido.id}}">
+      <div class="pedidos-perfil">
+        <p><strong>Id del Pedido:</strong> {{ pedido.id }}</p>
+        <p><strong>Precio Total:</strong> {{ pedido.importePedido }}€</p>
+      </div>
+    </a>
+    {% endfor %}
   </div>
 </div>
 
