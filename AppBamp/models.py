@@ -44,7 +44,11 @@ class Producto(models.Model):
     descripcion = models.TextField(max_length=600)
     precio = models.DecimalField(max_digits=6, decimal_places=2)
     nombreProducto = models.CharField(max_length=50)
+<<<<<<< HEAD
     restaurante = models.ManyToManyField(Restaurante)
+=======
+    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
+>>>>>>> parent of 287c906 (avance bd)
     def __str__(self):
         return self.nombreProducto
     

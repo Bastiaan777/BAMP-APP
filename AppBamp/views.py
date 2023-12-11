@@ -130,7 +130,7 @@ def restaurantes(request):
 @require_POST
 def carta(request):
     id_restaurante = request.POST.get('id-restaurante')
-    lista_productos = Producto.objects.filter(restaurante_id=id_restaurante).order_by(nombreProducto) #filter -> Esperas mas de un resultado en la query
+    lista_productos = Producto.objects.filter(restaurante_id=id_restaurante) #filter -> Esperas mas de un resultado en la query
     print(lista_productos)
     contexto = {'carta':lista_productos}
     return render(request, 'carta.html', contexto)
