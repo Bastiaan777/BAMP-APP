@@ -22,18 +22,16 @@
     onclick="enviarFormulario({{ restaurante.id }})"
   >
     <div class="info-restaurante">
-      <img src="{{ restaurante.imagen.url }}" alt="Imagen del restaurante." />
+      <img src="{{ restaurante.imagen.url }}" alt="Imagen del restaurante." class="imagen-restaurante"/>
       <h4>{{ restaurante.nombreRestaurante }}</h4>
       <br />
-      <p>{{restaurante.descripcion}}</p>
-      <br />
-      <p>Nº teléfono: {{restaurante.telefono}}</p>
+      <p>Horario: {{restaurante.hAperturaRestaurante}} -
+        {{restaurante.hCierreRestaurante}}</p>
       <br />
       <p>Dirección: {{restaurante.direccion}}</p>
       <br />
       <p>
-        Horario: {{restaurante.hAperturaRestaurante}} -
-        {{restaurante.hCierreRestaurante}}
+        Nº teléfono: {{restaurante.telefono}}
       </p>
       <a href="#" class="btn btn-ver-menu">Ver Menú</a>
     </div>

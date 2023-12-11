@@ -83,3 +83,9 @@ h3 {
   text-align: center;
   padding-bottom: 15px;
 }
+
+.imagen-restaurante {
+  width: 300px; /* Ajusta el ancho según tus necesidades */
+  height: 200px; /* Ajusta el alto según tus necesidades */
+  object-fit: cover; /* Esto asegura que la imagen se ajuste al tamaño definido sin distorsionarse */
+}
