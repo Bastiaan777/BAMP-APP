@@ -21,20 +21,20 @@ h3 {
 
 .boton-centrado {
   text-align: center;
-  margin-top: 20px; /* Ajusta la separación entre la imagen y el botón */
+  margin-top: 20px; 
 }
 
 .btn-primary {
   display: inline-block;
   padding: 25px 40px;
-  margin: 10px auto; /* Actualizado para centrar el botón */
+  margin: 10px auto; 
   background-color: #154792;
   color: white;
   text-align: center;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
-  font-size: 16px; /* Ajusta el tamaño del texto dentro del botón si es necesario */
+  font-size: 16px; 
 }
 
 .btn-primary:hover {
@@ -43,8 +43,8 @@ h3 {
 }
 
 .responsive-image {
-  width: 270px; /* Cambia esto al ancho deseado */
-  height: auto; /* Mantiene la relación de aspecto de la imagen */
-  display: block; /* Evita que haya espacio extra debajo de la imagen */
-  margin: auto; /* Centra la imagen y añade un margen arriba y abajo */
+  width: 270px; 
+  height: auto; 
+  display: block;
+  margin: auto; 
 }

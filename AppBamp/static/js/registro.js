@@ -19,11 +19,11 @@ window.onload = function() {
     });
 }
 
-//funcion añadida
+
 function verificarUsuario(username) {
     console.log("El username es: " + username);
     if (username.length === 0) {
-        // No hacer nada si el campo está vacío
+        
         return;
     }
 

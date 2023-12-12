@@ -33,14 +33,14 @@ h3, h4 {
   color: #333;
 }
 
-/* Contenedor Principal */
+
 .main-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-/* Datos del perfil */
+
 .datos-perfil {
   background-color: #f8f8f8;
   padding: 15px;
@@ -64,7 +64,7 @@ h3, h4 {
   margin-right: 5px;
 }
 
-/* Pedidos del Usuario */
+
 .pedidos-container {
   max-width: 600px;
 }
@@ -86,7 +86,7 @@ h3, h4 {
   color: #555;
 }
 
-/* Botones de Acción */
+
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -106,7 +106,7 @@ a{
   text-decoration: none;
 }
 
-/* Responsividad */
+
 @media (max-width: 768px) {
   .main-container {
       flex-direction: column;

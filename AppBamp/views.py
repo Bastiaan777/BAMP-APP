@@ -42,8 +42,6 @@ def verificar_usuario(request):
 
 
 
-    
-
 def home(request):
     if(request.user.is_authenticated):
         return render(request, 'home.html')
@@ -114,9 +112,9 @@ def registro(request):
 @require_POST #la view es la que interactua con la base de datos
 def categoria_restaurante(request):
 
-    # Retrieve the data from the form submission
-    id_ciudad = request.POST.get('id_ciudad') #linea 18 del ciudades.html, es el mismo id_ciudad
-    ciudad = Ciudad.objects.get(pk=id_ciudad) #SELECT * FROM AppBamp_ciudad WHERE id=1; --> esto es lo que esta haciendo 
+   
+    id_ciudad = request.POST.get('id_ciudad') 
+    ciudad = Ciudad.objects.get(pk=id_ciudad) 
     categorias = CategoriaRestaurante.objects.filter(restaurante__ciudad=ciudad).distinct()
     contexto = {'categorias': categorias, 'ciudad' : ciudad} 
     return render(request, 'categorias_restaurante.html', contexto)
@@ -147,8 +145,8 @@ def pedido(request):
     if request.user.is_authenticated:
         print(request.user)
         pedido = Pedido()
-        usuario = User.objects.get(username=request.user) #cargamos el objeto User con el username
-        perfil_usuario = PerfilUsuario.objects.get(usuario=usuario) #get es algo unico
+        usuario = User.objects.get(username=request.user) 
+        perfil_usuario = PerfilUsuario.objects.get(usuario=usuario) 
         pedido.usuario = perfil_usuario
         pedido.save()
         for nombre_variable, cantidad in request.POST.items():
@@ -172,10 +170,8 @@ def pedido(request):
 def resumen_pedido(request):
     id_pedido = request.GET.get('id')
     pedido = Pedido.objects.get(pk=id_pedido)
-     # Obtener los productos asociados al pedido y sus cantidades
     productos_pedido = PedidoProducto.objects.filter(pedido=pedido)
 
-    # Crear una lista de productos con su información y cantidad
     productos = []
     for producto_pedido in productos_pedido:
         productos.append({
@@ -185,7 +181,6 @@ def resumen_pedido(request):
             'cantidad': producto_pedido.cantidad
         })
 
-    # Preparar el contexto para el template
     contexto = {
         'pedido': pedido,
         'productos': productos,

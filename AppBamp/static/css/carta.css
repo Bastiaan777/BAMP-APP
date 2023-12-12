@@ -1,7 +1,7 @@
 .productos-container {
   display: flex;
   flex-direction: column;
-  color: white; /* Texto en blanco para el contenedor */
+  color: white;
 }
 
 .producto-item {
@@ -10,7 +10,7 @@
   align-items: center;
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
-  color: white; /* Texto en blanco para cada item de producto */
+  color: white; 
 }
 
 .producto-info {
@@ -20,12 +20,12 @@
 .producto-nombre {
   font-weight: bold;
   margin-right: 10px;
-  color: white; /* Texto en blanco para el nombre del producto */
+  color: white; 
 }
 
 .producto-precio {
   font-style: italic;
-  color: white; /* Texto en blanco para el precio */
+  color: white; 
 }
 
 .producto-cantidad {
@@ -35,13 +35,13 @@
 
 .producto-cantidad label {
   margin-right: 5px;
-  color: white; /* Texto en blanco para la etiqueta de cantidad */
+  color: white; 
 }
 
 input[type="number"] {
   width: 50px;
   padding: 5px;
-  /* Se mantiene el estilo original para el input de tipo número */
+  
 }
 
 .boton-confirmar {
@@ -52,7 +52,7 @@ input[type="number"] {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  float: right; /* Alinea el botón a la derecha */
+  float: right; 
 }
 
 
@@ -63,7 +63,7 @@ input[type="number"] {
 h4 {
   font-family: 'Arial', sans-serif;
   font-size: 30px;
-  color: white; /* Texto en blanco para el encabezado h4 */
+  color: white; 
   text-align: center;
   padding-bottom: 15px;
 }

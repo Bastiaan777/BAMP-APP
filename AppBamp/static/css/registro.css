@@ -1,96 +1,96 @@
-/* TITULO -------------------------------------------------------- */
+
 #formulario {
-  background-color: #205ab4;  /* Fuente más moderna */
+  background-color: #205ab4; 
   background: #14376d;
   color: white;
-  padding: 10px; /* Padding más grande para mejor aspecto */
+  padding: 10px; 
   text-align: center;
-  border-radius: 20px; /* Bordes redondeados uniformes */
-  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+  border-radius: 20px; 
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2); 
   margin-bottom: 20px; 
 }
 
-/* FORMULARIO: fondo blanco y casillas --------------------------- */
+
 button.btn {
-  display: block; /* Cambiar a bloque para centrar en el formulario */
-  margin: 10px auto; /* Centrado automático */
-  padding: 10px 20px; /* Padding más cómodo */
-  background-color: #205ab4; /* Color que combina con el título */
-  color: white; /* Texto blanco para contraste */
+  display: block; 
+  margin: 10px auto; 
+  padding: 10px 20px; 
+  background-color: #205ab4; 
+  color: white; 
   border: none;
-  border-radius: 5px; /* Bordes ligeramente redondeados */
-  cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+  border-radius: 5px; 
+  cursor: pointer; 
 }
 
 button.btn:hover {
-  background-color: #14376d; /* Cambio de color al pasar el cursor */
+  background-color: #14376d; 
 }
 
 form {
   background-color: white;
-  margin: 10px auto; /* Margen uniforme */
+  margin: 10px auto; 
   border-radius: 20px;
-  width: 60%; /* Ancho más adaptable */
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra suave */
-  padding: 20px; /* Padding interno para el formulario */
+  width: 60%; 
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
+  padding: 20px; 
 }
 
 label {
-  margin-left: 15px; /* Margen izquierdo aumentado */
-  font-size: 14px; /* Tamaño de letra más grande */
-  color: #333; /* Color de letra más suave */
-  font-weight: bold; /* Letra en negrita */
+  margin-left: 15px;
+  font-size: 14px; 
+  color: #333;
+  font-weight: bold; 
 }
 
 input {
   margin-bottom: 15px; 
-  width: calc(100% - 30px); /* Ancho ajustado para el padding */
-  padding: 10px; /* Padding más cómodo */
+  width: calc(100% - 30px); 
+  padding: 10px; 
   margin-left: 15px;
   border: 1px solid #ccc;
-  font-style: normal; /* Estilo de fuente normal */
-  border-radius: 5px; /* Bordes ligeramente redondeados */
+  font-style: normal; 
+  border-radius: 5px; 
 }
 
 input:focus {
   background-color: #F2F2F2;
-  outline: none; /* Eliminar el contorno al enfocar */
+  outline: none; 
 }
 
-/* CUERPO -------------------------------------------------- */ 
+
 body {
   background-image: linear-gradient(-90deg, #6ABBF7, #BD7CFA);
-  font-family: 'Arial', sans-serif; /* Fuente uniforme para todo el cuerpo */
-  margin: 0; /* Eliminar margen predeterminado */
-  padding: 0; /* Eliminar padding predeterminado */
+  font-family: 'Arial', sans-serif; 
+  margin: 0; 
+  padding: 0; 
 }
 
-/* Modal base */
+
 .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Fijo en la pantalla */
-    z-index: 1; /* Se muestra sobre otros elementos */
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Anchura completa */
-    height: 100%; /* Altura completa */
-    overflow: auto; /* Habilitar desplazamiento si es necesario */
-    background-color: rgb(0,0,0); /* Fondo negro */
-    background-color: rgba(0,0,0,0.4); /* Negro con opacidad */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
 }
 
-/* Contenido del modal */
+
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% desde la parte superior y centrado */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 50%; /* Ajusta esto según el tamaño deseado */
-    box-sizing: border-box; /* Para que padding no afecte el ancho */
-    border-radius: 15px; /* Esquinas redondeadas */
+    width: 50%; 
+    box-sizing: border-box; 
+    border-radius: 15px; 
 }
 
-/* El botón de cerrar (x) */
+
 .close {
     color: red;
     float: right;
@@ -105,7 +105,7 @@ body {
     cursor: pointer;
 }
 
-/* Estilo para el botón de 'Volver al Login' */
+
 .btn-login {
     display: inline-block;
     padding: 10px 20px;
@@ -119,8 +119,8 @@ body {
 }
 
 .btn-login:hover {
-    text-decoration: none; /* Mantiene el enlace sin subrayado al pasar el ratón por encima */
-    background-color: #14376d; /* Cambio de color al pasar el cursor */
+    text-decoration: none; 
+    background-color: #14376d; 
 }
 
 .modalErrores {
@@ -134,21 +134,21 @@ body {
 
 .password-container {
   position: relative;
-  margin-bottom: 15px; /* Asegura espacio entre los campos de contraseña */
+  margin-bottom: 15px; 
 }
 
 .password-field {
-  padding-right: 30px; /* Espacio para el icono del ojo */
-  width: 93%; /* Se ajusta al contenedor con espacio para el icono */
-  display: block; /* Hace que el input ocupe su propia línea */
+  padding-right: 30px; 
+  width: 93%; 
+  display: block; 
 }
 
 .eye-icon {
   position: absolute;
-  right: 1%; /* Ajustado para alinear con el padding del campo */
+  right: 1%;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  font-size: 1em; /* Usa ems para escalabilidad */
+  font-size: 1em;
   z-index: 5;
 }

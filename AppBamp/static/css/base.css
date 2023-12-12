@@ -1,24 +1,20 @@
-/* Resetear márgenes y rellenos predeterminados */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Asegurarse de que html y body ocupen toda la altura y anchura disponibles */
 html, body {
   width: 100%;
   height: 100%;
 }
-
-/* Estilos existentes y modificados a continuación */
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Estilos para el footer */
 .footer, footer {
   text-align: center;
   padding: 10px;
@@ -31,13 +27,11 @@ h2 {
   right: 0;
 }
 
-/* Estilos para el header */
 header {
   background-color: #333;
   color: white;
   padding: 15px;
-  width: 100%; /* Asegurar que el header ocupe toda la anchura */
- /* position: fixed;*/
+  width: 100%; 
 }
 
 .header-contenido {
@@ -47,22 +41,22 @@ header {
 }
 
 .nombreWeb {
-  display: flex; /* Establece el contenedor como un flexbox */
-  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  display: flex; 
+  align-items: center; 
 }
 
 .nombreWeb h1 {
-  margin: 0; /* Elimina el margen del título */
-  flex-grow: 1; /* Permite que el título ocupe el espacio disponible, empujando el logo hacia la derecha */
+  margin: 0; 
+  flex-grow: 1; 
 }
 
 .logoBamp {
-  width: 40px; /* Ancho de la imagen */
-  height: auto; /* Altura automática para mantener la proporción */
+  width: 40px;
+  height: auto; 
   margin-left: 10px;
 }
 
-/* Estilos para la navegación */
+
 nav .estilo-header {
   list-style-type: none;
   display: flex;
@@ -111,29 +105,29 @@ footer{
   color: white;
   padding: 20px 10px;
 }
-footer > * { /* Se aplica a todos los elementos directos dentro del footer */
-  margin: 0 10px; /* Agrega margen a izquierda y derecha */
+footer > * { 
+  margin: 0 10px; 
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
   .content {
     width: 100%;
-    margin: 0; /* Eliminar margen en dispositivos móviles */
+    margin: 0; /
   }
 }
 
 .fondo-completo {
-  background-color: rgb(35, 121, 208); /* El color de fondo que desees */
-  min-height: 100vh; /* Asegurar que cubra toda la altura de la pantalla */
-  padding: 20px; /* Agregar algo de espacio alrededor */
+  background-color: rgb(35, 121, 208); 
+  min-height: 100vh; 
+  padding: 20px; 
 }
 
 a.link-politica {
-  color: white;        /* Establece el color del texto en blanco */
-  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: white;        
+  text-decoration: none; 
 }
 
 a.link-politica:hover {
-  text-decoration: underline; /* Puedes quitar esta línea si no deseas ningún efecto al pasar el mouse */
+  text-decoration: underline; 
 }

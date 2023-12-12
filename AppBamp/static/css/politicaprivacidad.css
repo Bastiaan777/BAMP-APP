@@ -1,22 +1,20 @@
 main, footer {
-  color: white; /* Establece el color del texto de todos los elementos dentro de <main> y <footer> en blanco */
+  color: white; 
 }
 
 main p, footer p {
-  color: white; /* Específicamente establece el color del texto para <h2>, <p> dentro de <main>, y <p> dentro de <footer> en blanco */
-}
+  color: white; 
 
 li {
-  color: white; /* Establece el color del texto de los elementos de la lista en blanco */
-}
-/* Para los títulos */
-h2 {
-  text-decoration: underline; /* Subraya los títulos */
-  color: white; /* Asegúrate de que los títulos estén en blanco */
+  color: white; 
 }
 
-/* Para la lista */
+h2 {
+  text-decoration: underline; 
+  color: white; 
+
+
 ul {
-  padding-left: 35px; /* Aumenta el relleno izquierdo para mover la lista a la derecha */
+  padding-left: 35px; 
   color: white;
 }

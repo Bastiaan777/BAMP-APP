@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 .resumen-container {
   max-width: 800px;
   margin: 0 auto;
@@ -26,16 +26,16 @@
   font-size: 16px;
 }
 
-/* Encabezado */
+
 h2 {
   text-align: center;
-  color: white; /* Cambiado a blanco */
-  text-transform: uppercase; /* Texto en mayúsculas */
+  color: white; 
+  text-transform: uppercase; 
   font-family: 'Arial', sans-serif;
   margin-bottom: 20px;
 }
 
-/* Detalles del producto */
+
 .producto-nombre {
   font-weight: bold;
   color: #007bff;
@@ -46,13 +46,13 @@ h2 {
   color: #555;
 }
 
-/* Cantidad y precio */
+
 .producto-cantidad,
 .producto-precio {
   font-weight: bold;
 }
 
-/* Total */
+
 .total {
   text-align: right;
   padding-top: 15px;
@@ -69,4 +69,4 @@ h2 {
   font-weight: bold;
 }
 
-/* Añade estilos adicionales si es necesario */
+
